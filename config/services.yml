@@ -1,0 +1,78 @@
+services:
+    marttiphpbb.calendarweekview.main_listener:
+        class: marttiphpbb\calendarweekview\event\main_listener
+        tags:
+            - { name: event.listener }
+
+    marttiphpbb.calendarweekview.viewing_listener:
+        class: marttiphpbb\calendarweekview\event\viewing_listener
+        arguments:
+            - '@controller.helper'
+            - '%core.php_ext%'
+            - '@language'
+            - '@user'
+        tags:
+            - { name: event.listener }
+
+    marttiphpbb.calendarweekview.tag_listener:
+        class: marttiphpbb\calendarweekview\event\tag_listener
+        arguments:
+            - '@controller.helper'
+            - '@marttiphpbb.calendarweekview.store'
+        tags:
+            - { name: event.listener }
+
+    marttiphpbb.calendarweekview.menu_listener:
+        class: marttiphpbb\calendarweekview\event\menu_listener
+        arguments:
+            - '@controller.helper'
+            - '@marttiphpbb.calendarweekview.user_today'
+            - '@auth'
+        tags:
+            - { name: event.listener }
+
+    marttiphpbb.calendarweekview.store:
+        class: marttiphpbb\calendarweekview\service\store
+        arguments:
+            - '@config_text'
+            - '@cache.driver'
+
+    marttiphpbb.calendarweekview.user_today:
+        class: marttiphpbb\calendarweekview\service\user_today
+        arguments:
+            - '@user'
+
+    marttiphpbb.calendarweekview.user_time:
+        class: marttiphpbb\calendarweekview\service\user_time
+        arguments:
+            - '@user'
+            - '@marttiphpbb.calendarweekview.store'
+
+    marttiphpbb.calendarweekview.controller:
+        class: marttiphpbb\calendarweekview\controller\main
+        arguments:
+            - '@dispatcher'
+            - '@request'
+            - '%core.php_ext%'
+            - '@template'
+            - '@language'
+            - '@controller.helper'
+            - '%core.root_path%'
+            - '@marttiphpbb.calendarweekview.pagination'
+            - '@marttiphpbb.calendarweekview.store'
+            - '@marttiphpbb.calendarweekview.user_today'
+            - '@marttiphpbb.calendarweekview.user_time'
+
+    marttiphpbb.calendarweekview.redirect_controller:
+        class: marttiphpbb\calendarweekview\controller\redirect
+        arguments:
+            - '@marttiphpbb.calendarweekview.user_today'
+            - '@controller.helper'
+
+    marttiphpbb.calendarweekview.pagination:
+        class: marttiphpbb\calendarweekview\service\pagination
+        arguments:
+            - '@config'
+            - '@controller.helper'
+            - '@template'
+            - '@language'
