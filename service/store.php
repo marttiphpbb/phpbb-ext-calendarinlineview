@@ -157,66 +157,6 @@ class store
 		return $this->get_boolean('show_moon_phase');
 	}
 
-	public function set_topic_hilit(bool $topic_hilit):void
-	{
-		$this->set_boolean('topic_hilit', $topic_hilit);
-	}
-
-	public function get_topic_hilit():bool
-	{
-		return $this->get_boolean('topic_hilit');
-	}
-
-	public function set_first_weekday(int $first_weekday):void
-	{
-		$this->set_int('first_weekday', $first_weekday);
-	}
-
-	public function get_first_weekday():int
-	{
-		return $this->get_int('first_weekday');
-	}
-
-	public function set_min_rows(int $min_rows):void
-	{
-		$this->set_int('min_rows', $min_rows);
-	}
-
-	public function get_min_rows():int
-	{
-		return $this->get_int('min_rows');
-	}
-
-	public function set_max_rows(int $max_rows):void
-	{
-		$this->set_int('max_rows', $max_rows);
-	}
-
-	public function get_max_rows():int
-	{
-		return $this->get_int('max_rows');
-	}
-
-	public function set_pag_neighbours(int $pag_neighbours):void
-	{
-		$this->set_int('pag_neighbours', $pag_neighbours);
-	}
-
-	public function get_pag_neighbours():int
-	{
-		return $this->get_int('pag_neighbours');
-	}
-
-	public function set_pag_show_prev_next(bool $pag_show_prev_next):void
-	{
-		$this->set_boolean('pag_show_prev_next', $pag_show_prev_next);
-	}
-
-	public function get_pag_show_prev_next():bool
-	{
-		return $this->get_boolean('pag_show_prev_next');
-	}
-
 	public function set_load_stylesheet(bool $load_stylesheet):void
 	{
 		$this->set_boolean('load_stylesheet', $load_stylesheet);
@@ -247,14 +187,14 @@ class store
 		return $this->get_int('height_event_row');
 	}
 
-	public function set_height_offset_week_cont(int $height_offset_week_cont):void
+	public function set_height_offset_cont(int $height_offset_cont):void
 	{
-		$this->set_int('height_offset_week_cont', $height_offset_week_cont);
+		$this->set_int('height_offset_cont', $height_offset_cont);
 	}
 
-	public function get_height_offset_week_cont():int
+	public function get_height_offset_cont():int
 	{
-		return $this->get_int('height_offset_week_cont');
+		return $this->get_int('height_offset_cont');
 	}
 
 	public function set_derive_user_time_format(bool $derive_user_time_format):void
