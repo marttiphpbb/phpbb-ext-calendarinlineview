@@ -5,7 +5,7 @@
 	"homepage": "https://github.com/marttiphpbb/phpbb-ext-calendarweekview",
 	"version": "0.1.0",
 	"time": "2019-01-18",
-	"keywords": ["phpbb", "extension", "calendar", "monthview"],
+	"keywords": ["phpbb", "extension", "calendar", "weekview"],
 	"license": "GPL-2.0",
 	"authors": [{
 		"name": "martti",

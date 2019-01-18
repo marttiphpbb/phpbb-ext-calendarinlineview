@@ -13,7 +13,7 @@ class cnst
 	const ID = 'marttiphpbb_calendarweekview';
 	const PREFIX = self::ID . '_';
 	const CACHE_ID = '_' . self::ID;
-	const L = 'MARTTIPHPBB_CALENDARMONTHVIEW';
+	const L = 'MARTTIPHPBB_CALENDARWEEKVIEW';
 	const L_ACP = 'ACP_' . self::L;
 	const L_MCP = 'MCP_' . self::L;
 	const TPL = '@' . self::ID . '/';
@@ -25,6 +25,7 @@ class cnst
 		2	=> 'fa-circle-o',
 		3	=> 'fa-adjust',
 	];
+
 	const MOON_LANG = [
 		0	=> 'NEW_MOON',
 		1	=> 'FIRST_QUARTER_MOON',

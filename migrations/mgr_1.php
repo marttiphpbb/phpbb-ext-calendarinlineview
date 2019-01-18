@@ -32,8 +32,7 @@ class mgr_1 extends \phpbb\db\migration\migration
 				[
 					'module_basename'	=> '\marttiphpbb\calendarweekview\acp\main_module',
 					'modes'				=> [
-						'links',
-						'page_rendering',
+						'rendering',
 					],
 				],
 			]],

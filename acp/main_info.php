@@ -17,13 +17,8 @@ class main_info
 			'filename'	=> '\marttiphpbb\calendarweekview\acp\main_module',
 			'title'		=> cnst::L_ACP,
 			'modes'		=> [
-				'links'	=> [
-					'title' => cnst::L_ACP . '_LINKS',
-					'auth' => 'ext_marttiphpbb/calendarweekview && acl_a_board',
-					'cat' => [cnst::L_ACP],
-				],
-				'page_rendering'	=> [
-					'title' => cnst::L_ACP . '_PAGE_RENDERING',
+				'rendering'	=> [
+					'title' => cnst::L_ACP . '_RENDERING',
 					'auth' => 'ext_marttiphpbb/calendarweekview && acl_a_board',
 					'cat' => [cnst::L_ACP],
 				],

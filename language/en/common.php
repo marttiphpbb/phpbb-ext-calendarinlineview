@@ -18,6 +18,5 @@ if (empty($lang) || !is_array($lang))
 
 $lang = array_merge($lang, [
 
-	'MARTTIPHPBB_CALENDARMONTHVIEW_CALENDAR'	=> 'Calendar',
-	'MARTTIPHPBB_CALENDARMONTHVIEW_VIEWING'		=> 'Viewing Calendar',
+	'MARTTIPHPBB_CALENDARWEEKVIEW_CALENDAR'		=> 'Calendar',
 ]);

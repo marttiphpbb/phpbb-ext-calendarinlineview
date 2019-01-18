@@ -18,10 +18,8 @@ if (empty($lang) || !is_array($lang))
 
 $lang = array_merge($lang, [
 
-	'ACP_MARTTIPHPBB_CALENDARMONTHVIEW'
+	'ACP_MARTTIPHPBB_CALENDARWEEKVIEW'
 	=> 'Calendar Week View',
-	'ACP_MARTTIPHPBB_CALENDARMONTHVIEW_LINKS'
-	=> 'Links',
-	'ACP_MARTTIPHPBB_CALENDARMONTHVIEW_PAGE_RENDERING'
-	=> 'Page rendering',
+	'ACP_MARTTIPHPBB_CALENDARWEEKVIEW_RENDERING'
+	=> 'Rendering',
 ]);
