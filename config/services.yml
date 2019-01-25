@@ -1,6 +1,6 @@
 services:
-    marttiphpbb.calendarweekview.main_listener:
-        class: marttiphpbb\calendarweekview\event\main_listener
+    marttiphpbb.calendarweekview.listener:
+        class: marttiphpbb\calendarweekview\event\listener
         tags:
             - { name: event.listener }
 

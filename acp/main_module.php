@@ -27,6 +27,37 @@ class main_module
 
 		switch($mode)
 		{
+			case 'placement':
+				$this->tpl_name = 'placement';
+				$this->page_title = $language->lang(cnst::L_ACP . '_PLACEMENT');
+
+				if (!$ext_manager->is_enabled('marttiphpbb/overallpageblocks'))
+				{
+					$msg = $language->lang(cnst::L_ACP . '_OVERALLPAGEBLOCKS_NOT_ENABLED',
+						'<a href="https://github.com/marttiphpbb/phpbb-ext-overallpageblocks">',
+						'</a>');
+					trigger_error($msg, E_USER_WARNING);
+				}
+
+				$overallpageblocks_acp = $phpbb_container->get('marttiphpbb.overallpageblocks.acp');
+
+				if ($request->is_set_post('submit'))
+				{
+					if (!check_form_key(cnst::FOLDER))
+					{
+						trigger_error('FORM_INVALID');
+					}
+
+					$overallpageblocks_acp->process_form(cnst::FOLDER, 'index');
+
+					trigger_error($language->lang(cnst::L_ACP . '_SETTINGS_SAVED') . adm_back_link($this->u_action));
+				}
+
+				$overallpageblocks_acp->assign_to_template(cnst::FOLDER);
+
+			break;
+
+
 			case 'rendering':
 
 				$this->tpl_name = 'rendering';
@@ -40,7 +71,6 @@ class main_module
 					}
 
 					$store->transaction_start();
-					$store->set_show_today($request->variable('show_today', 0) ? true : false);
 					$store->set_show_isoweek($request->variable('show_isoweek', 0) ? true : false);
 					$store->set_show_moon_phase($request->variable('show_moon_phase', 0) ? true : false);
 					$store->set_derive_user_time_format($request->variable('derive_user_time_format', 0) ? true : false);
@@ -55,7 +85,6 @@ class main_module
 				}
 
 				$template->assign_vars([
-					'SHOW_TODAY'				=> $store->get_show_today(),
 					'SHOW_ISOWEEK'				=> $store->get_show_isoweek(),
 					'SHOW_MOON_PHASE'			=> $store->get_show_moon_phase(),
 					'DERIVE_USER_TIME_FORMAT'	=> $store->get_derive_user_time_format(),

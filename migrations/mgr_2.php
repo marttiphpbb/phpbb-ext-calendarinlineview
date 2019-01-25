@@ -21,7 +21,6 @@ class mgr_2 extends \phpbb\db\migration\migration
 	public function update_data()
 	{
 		$data = [
-			'show_today'				=> true,
 			'show_isoweek'				=> false,
 			'show_moon_phase'			=> false,
 			'load_stylesheet'			=> true,

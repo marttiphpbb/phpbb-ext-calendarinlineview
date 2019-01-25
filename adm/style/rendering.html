@@ -1,0 +1,136 @@
+{%- extends '@marttiphpbb_calendarweekview/base.html' -%}
+
+{%- block heading -%}
+	{{- lang('ACP_MARTTIPHPBB_CALENDARWEEKVIEW_RENDERING') -}}
+{%- endblock -%}
+
+{%- block form_content -%}
+	<fieldset>
+		{%- embed '@marttiphpbb_calendarweekview/include/radio.html' with {'checked': SHOW_ISOWEEK} only -%}
+			{%- block label -%}
+				{{- lang('ACP_MARTTIPHPBB_CALENDARWEEKVIEW_ISOWEEK') -}}
+			{%- endblock -%}
+			{%- block name -%}
+				show_isoweek
+			{%- endblock -%}
+		{%- endembed -%}
+
+		{%- embed '@marttiphpbb_calendarweekview/include/radio.html' with {'checked': SHOW_MOON_PHASE} only -%}
+			{%- block label -%}
+				{{- lang('ACP_MARTTIPHPBB_CALENDARWEEKVIEW_MOON_PHASE') -}}
+			{%- endblock -%}
+			{%- block name -%}
+				show_moon_phase
+			{%- endblock -%}
+		{%- endembed -%}
+	</fieldset>
+
+	<fieldset>
+		<legend>
+			{{- lang('ACP_MARTTIPHPBB_CALENDARWEEKVIEW_TIME_FORMAT') -}}
+		</legend>
+		<p>
+			{{- lang('ACP_MARTTIPHPBB_CALENDARWEEKVIEW_TIME_FORMAT_EXPLAIN') -}}
+		</p>
+
+		{%- embed '@marttiphpbb_calendarweekview/include/radio.html' with {'checked': DERIVE_USER_TIME_FORMAT} only -%}
+			{%- block label -%}
+				{{- lang('ACP_MARTTIPHPBB_CALENDARWEEKVIEW_DERIVE_USER_TIME_FORMAT') -}}
+			{%- endblock -%}
+			{%- block explain -%}
+				<br>
+				{{- lang('ACP_MARTTIPHPBB_CALENDARWEEKVIEW_DERIVE_USER_TIME_FORMAT_EXPLAIN') -}}
+			{%- endblock -%}
+			{%- block name -%}
+				derive_user_time_format
+			{%- endblock -%}
+		{%- endembed -%}
+
+		{%- embed '@marttiphpbb_calendarweekview/include/text.html' -%}
+			{%- block label -%}
+				{{- lang('ACP_MARTTIPHPBB_CALENDARWEEKVIEW_DEFAULT_TIME_FORMAT') -}}
+			{%- endblock -%}
+			{%- block explain -%}
+				<br>
+				{{- lang('ACP_MARTTIPHPBB_CALENDARWEEKVIEW_DEFAULT_TIME_FORMAT_EXPLAIN', '<a href="http://php.net/manual/en/function.date.php">', '</a>') -}}
+			{%- endblock -%}
+			{%- block name -%}
+				default_time_format
+			{%- endblock -%}
+			{%- block value -%}
+				{{- DEFAULT_TIME_FORMAT -}}
+			{%- endblock -%}
+		{%- endembed -%}
+	</fieldset>
+
+	<fieldset>
+		<legend>
+			{{- lang('ACP_MARTTIPHPBB_CALENDARWEEKVIEW_HEIGHT_CONTAINER') -}}
+		</legend>
+
+		{%- embed '@marttiphpbb_calendarweekview/include/number.html' -%}
+			{%- block label -%}
+				{{- lang('ACP_MARTTIPHPBB_CALENDARWEEKVIEW_HEIGHT_OFFSET') -}}
+			{%- endblock -%}
+			{%- block explain -%}
+				<br>
+				{{- lang('ACP_MARTTIPHPBB_CALENDARWEEKVIEW_HEIGHT_OFFSET_EXPLAIN') -}}
+			{%- endblock -%}
+			{%- block name -%}
+				height_offset_cont
+			{%- endblock -%}
+			{%- block value -%}
+				{{- HEIGHT_OFFSET_WEEK_CONT -}}
+			{%- endblock -%}
+			{%- block attr %} min="1"{%- endblock -%}
+		{%- endembed -%}
+
+		{%- embed '@marttiphpbb_calendarweekview/include/number.html' -%}
+			{%- block label -%}
+				{{- lang('ACP_MARTTIPHPBB_CALENDARWEEKVIEW_HEIGHT_EVENT_ROW') -}}
+			{%- endblock -%}
+			{%- block name -%}
+				height_event_row
+			{%- endblock -%}
+			{%- block value -%}
+				{{- HEIGHT_EVENT_ROW -}}
+			{%- endblock -%}
+			{%- block attr %} min="1"{%- endblock -%}
+		{%- endembed -%}
+	</fieldset>
+
+	<fieldset>
+		<legend>
+			{{- lang('ACP_MARTTIPHPBB_CALENDARWEEKVIEW_STYLESHEET') -}}
+		</legend>
+
+		{%- embed '@marttiphpbb_calendarweekview/include/radio.html' with {'checked': LOAD_STYLESHEET} only -%}
+			{%- block label -%}
+				{{- lang('ACP_MARTTIPHPBB_CALENDARWEEKVIEW_LOAD_STYLESHEET') -}}
+			{%- endblock -%}
+			{%- block explain -%}
+				<br>
+				{{- lang('ACP_MARTTIPHPBB_CALENDARWEEKVIEW_LOAD_STYLESHEET_EXPLAIN') -}}
+			{%- endblock -%}
+			{%- block name -%}
+				load_stylesheet
+			{%- endblock -%}
+		{%- endembed -%}
+
+		{%- embed '@marttiphpbb_calendarweekview/include/text.html' -%}
+			{%- block label -%}
+				{{- lang('ACP_MARTTIPHPBB_CALENDARWEEKVIEW_EXTRA_STYLESHEET') -}}
+			{%- endblock -%}
+			{%- block explain -%}
+				<br>
+				{{- lang('ACP_MARTTIPHPBB_CALENDARWEEKVIEW_EXTRA_STYLESHEET_EXPLAIN') -}}
+			{%- endblock -%}
+			{%- block name -%}
+				extra_stylesheet
+			{%- endblock -%}
+			{%- block value -%}
+				{{- EXTRA_STYLESHEET -}}
+			{%- endblock -%}
+		{%- endembed -%}
+	</fieldset>
+{%- endblock form_content -%}

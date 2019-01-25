@@ -11,7 +11,7 @@ use phpbb\event\data as event;
 use marttiphpbb\calendarweekview\util\cnst;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
-class main_listener implements EventSubscriberInterface
+class listener implements EventSubscriberInterface
 {
 	static public function getSubscribedEvents()
 	{
@@ -23,10 +23,25 @@ class main_listener implements EventSubscriberInterface
 	public function core_user_setup(event $event)
 	{
 		$lang_set_ext = $event['lang_set_ext'];
+
 		$lang_set_ext[] = [
 			'ext_name' => cnst::FOLDER,
 			'lang_set' => 'common',
 		];
+
 		$event['lang_set_ext'] = $lang_set_ext;
+	}
+
+	public function get_date():array
+	{
+		$now = $this->user->create_datetime();
+		$time_offset = $now->getOffset();
+		return phpbb_gmgetdate($now->getTimestamp() + $time_offset);
+	}
+
+	public function get_jd():int
+	{
+		$now = $this->get_date();
+		return cal_to_jd(CAL_GREGORIAN, $now['mon'], $now['mday'], $now['year']);
 	}
 }
