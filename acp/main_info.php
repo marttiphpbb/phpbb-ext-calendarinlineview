@@ -17,6 +17,11 @@ class main_info
 			'filename'	=> '\marttiphpbb\calendarweekview\acp\main_module',
 			'title'		=> cnst::L_ACP,
 			'modes'		=> [
+				'placement_index'	=> [
+					'title' => cnst::L_ACP . '_PLACEMENT_INDEX',
+					'auth' => 'ext_marttiphpbb/calendarweekview && acl_a_board',
+					'cat' => [cnst::L_ACP],
+				],
 				'rendering'	=> [
 					'title' => cnst::L_ACP . '_RENDERING',
 					'auth' => 'ext_marttiphpbb/calendarweekview && acl_a_board',

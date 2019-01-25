@@ -21,25 +21,27 @@ class main_module
 		$request = $phpbb_container->get('request');
 		$store = $phpbb_container->get('marttiphpbb.calendarweekview.store');
 		$language = $phpbb_container->get('language');
+		$ext_manager = $phpbb_container->get('ext.manager');
 
 		$language->add_lang('acp', cnst::FOLDER);
+
+		if (!$ext_manager->is_enabled('marttiphpbb/overallpageblocks'))
+		{
+			$msg = $language->lang(cnst::L_ACP . '_OVERALLPAGEBLOCKS_NOT_ENABLED',
+				'<a href="https://github.com/marttiphpbb/phpbb-ext-overallpageblocks">',
+				'</a>');
+			trigger_error($msg, E_USER_WARNING);
+		}
+
+		$overallpageblocks_acp = $phpbb_container->get('marttiphpbb.overallpageblocks.acp');
+
 		add_form_key(cnst::FOLDER);
 
 		switch($mode)
 		{
-			case 'placement':
-				$this->tpl_name = 'placement';
-				$this->page_title = $language->lang(cnst::L_ACP . '_PLACEMENT');
-
-				if (!$ext_manager->is_enabled('marttiphpbb/overallpageblocks'))
-				{
-					$msg = $language->lang(cnst::L_ACP . '_OVERALLPAGEBLOCKS_NOT_ENABLED',
-						'<a href="https://github.com/marttiphpbb/phpbb-ext-overallpageblocks">',
-						'</a>');
-					trigger_error($msg, E_USER_WARNING);
-				}
-
-				$overallpageblocks_acp = $phpbb_container->get('marttiphpbb.overallpageblocks.acp');
+			case 'placement_index':
+				$this->tpl_name = 'placement_index';
+				$this->page_title = $language->lang(cnst::L_ACP . '_PLACEMENT_INDEX');
 
 				if ($request->is_set_post('submit'))
 				{
@@ -53,10 +55,7 @@ class main_module
 					trigger_error($language->lang(cnst::L_ACP . '_SETTINGS_SAVED') . adm_back_link($this->u_action));
 				}
 
-				$overallpageblocks_acp->assign_to_template(cnst::FOLDER);
-
 			break;
-
 
 			case 'rendering':
 
@@ -98,6 +97,7 @@ class main_module
 			break;
 		}
 
+		$overallpageblocks_acp->assign_to_template(cnst::FOLDER);
 		$template->assign_var('U_ACTION', $this->u_action);
 	}
 }

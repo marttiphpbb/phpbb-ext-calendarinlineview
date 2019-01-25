@@ -20,6 +20,8 @@ $lang = array_merge($lang, [
 
 	'ACP_MARTTIPHPBB_CALENDARWEEKVIEW'
 	=> 'Calendar Week View',
+	'ACP_MARTTIPHPBB_CALENDARWEEKVIEW_PLACEMENT_INDEX'
+	=> 'Placement On Index',
 	'ACP_MARTTIPHPBB_CALENDARWEEKVIEW_RENDERING'
 	=> 'Rendering',
 ]);

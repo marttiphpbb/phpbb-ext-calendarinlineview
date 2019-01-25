@@ -6,6 +6,8 @@
 * @license GNU General Public License, version 2 (GPL-2.0)
 */
 
+use marttiphpbb\calendarweekview\util\cnst;
+
 if (!defined('IN_PHPBB'))
 {
 	exit;
@@ -20,16 +22,16 @@ $lang = array_merge($lang, [
 
 	'ACP_MARTTIPHPBB_CALENDARWEEKVIEW_SETTINGS_SAVED'
 	=> 'The settings have been saved successfully!',
+	'ACP_MARTTIPHPBB_CALENDARWEEKVIEW_OVERALLPAGEBLOCKS_NOT_ENABLED'
+	=> 'This extension depends on the %1$sOverall Page Blocks extension%2$s to be installed
+	in order to function.',
 
 // page_rendering
 	'ACP_MARTTIPHPBB_CALENDARWEEKVIEW_ISOWEEK'
 	=> 'Display the week number (ISO 1806)',
 	'ACP_MARTTIPHPBB_CALENDARWEEKVIEW_MOON_PHASE'
 	=> 'Display the moon phase',
-	'ACP_MARTTIPHPBB_CALENDARWEEKVIEW_TODAY'
-	=> 'Mark today´s date',
-	'ACP_MARTTIPHPBB_CALENDARWEEKVIEW_FIRST_WEEKDAY'
-	=> 'First day of the week',
+
 
 	'ACP_MARTTIPHPBB_CALENDARWEEKVIEW_TIME_FORMAT'
 	=> 'Time format',

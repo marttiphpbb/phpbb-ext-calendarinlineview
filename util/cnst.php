@@ -32,4 +32,16 @@ class cnst
 		2	=> 'FULL_MOON',
 		3	=> 'THIRD_QUARTER_MOON',
 	];
+
+	static public function prefix_keys(string $prefix, array $lang_ary):array
+	{
+		$ary = [];
+
+		foreach($lang_ary as $key => $value)
+		{
+			$ary[$prefix . $key] = $value;
+		}
+
+		return $ary;
+	}
 }
