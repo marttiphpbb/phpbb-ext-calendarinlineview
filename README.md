@@ -14,9 +14,10 @@ Not yet
 
 ## Requirements
 
-* phpBB 3.2.1+
+* phpBB 3.2.5+
 * PHP 7.1+
 * phpBB extension [Calendar Mono](https://github.com/marttiphpbb/phpbb-ext-calendarmono)
+* phpBB extension [Overall Page Blocks](https://github.com/marttiphpbb/phpbb-ext-overallpageblocks)
 * PHP calendar extension (PHP compiled with --enable-calendar)
 
 When it's not possible for you to have PHP compiled with --enable-calendar see the [PHP Ext Calendar extension](https://github.com/marttiphpbb/phpbb-ext-phpextcalendar) for a solution.
