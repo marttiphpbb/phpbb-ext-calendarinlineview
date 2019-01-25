@@ -4,6 +4,14 @@ services:
         tags:
             - { name: event.listener }
 
+    marttiphpbb.calendarweekview.render_listener:
+        class: marttiphpbb\calendarweekview\event\render_listener
+        arguments:
+            - '@auth'
+            - '@marttiphpbb\calendarweekview\service\render'
+        tags:
+            - { name: event.listener }
+
     marttiphpbb.calendarweekview.store:
         class: marttiphpbb\calendarweekview\service\store
         arguments:
@@ -14,3 +22,20 @@ services:
         class: marttiphpbb\calendarweekview\service\user_today
         arguments:
             - '@user'
+
+    marttiphpbb.calendarweekview.user_time:
+        class: marttiphpbb\calendarweekview\service\user_time
+        arguments:
+            - '@user'
+            - '@marttiphpbb.calendarweekview.store'
+
+    marttiphpbb.calendarweekview.render:
+        class: marttiphpbb\calendarweekview\service\render
+        arguments:
+            - '@dispatcher'
+            - '%core.php_ext%'
+            - '@language'
+            - '%core.root_path%'
+            - '@marttiphpbb.calendarweekview.store'
+            - '@marttiphpbb.calendarweekview.user_today'
+            - '@marttiphpbb.calendarweekview.user_time'
