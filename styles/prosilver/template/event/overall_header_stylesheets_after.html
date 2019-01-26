@@ -1,0 +1,15 @@
+{%- if marttiphpbb_calendarweekview -%}
+    <style>
+        div.calendarweekview{
+        height: {{ (marttiphpbb_calendarweekview.height_offset + (marttiphpbb_calendarweekview.event_row_count * marttiphpbb_calendarweekview.height_event_row)) / 10 -}}em;
+        }
+    </style>
+
+    {%- if marttiphpbb_calendarweekview.load_stylesheet -%}
+	    {%- INCLUDECSS '@marttiphpbb_calendarweekview/weekview.css' -%}
+    {%- endif -%}
+
+    {%- if marttiphpbb_calendarweekview.extra_stylesheet -%}
+	    {%- INCLUDECSS marttiphpbb_calendarweekview.extra_stylesheet -%}
+    {%- endif -%}
+{%- endif -%}

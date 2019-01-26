@@ -1,0 +1,49 @@
+<div class="calendarweekview">
+	<div class="weekdays">
+		{%- for d in var.days -%}
+			<div class="day {{ d.weekday_class }}{%- if d.month_num % 2 %} even-month{%- endif -%}">
+				<div class="dayhead">
+					<div class="monthday">
+						{{- d.monthday -}}
+					</div>
+					<div class="weekday">
+						{{- d.weekday_abbrev -}}
+					</div>
+					{%- if var.show_moon_phase and d.moon_icon -%}
+						<div class="moon">
+							<span class="fa-stack" title="{{- d.moon_title -}}">
+								<i class="fa fa-circle fa-inverse fa-stack-1x"></i>
+								<i class="fa {{ d.moon_icon }} fa-stack-1x"></i>
+							</span>
+						</div>
+					{%- elseif d.weekday == 1 and var.show_isoweek -%}
+						<div class="isoweek">
+							{{- d.isoweek -}}
+						</div>
+					{%- endif -%}
+				</div>
+			</div>
+		{%- endfor -%}
+	</div>
+	<div class="eventrows">
+		<div class="evrow-head"></div>
+		{%- for er in var.eventrows -%}
+			<div class="evrow">
+			{%- for e in er.eventsegments -%}
+				<div class="f-con flex-{{- e.flex -}}">
+				{%- if e.TOPIC_ID -%}
+					<div class="ev forum-{{- e.forum_id }}{%- if e.s_start %} ev-start{%- endif -%}{%- if e.s_end %} ev-end{%- endif -%}e.TOPIC_ID %}" data-topic="{{- e.topic_id -}}" data-forum="{{- e.forum_id -}}">
+						<div class="ev-overlay">
+							<a href="{{- e.topic_link -}}" title="{{- e.topic_title -}}">
+								{{- e.topic_title -}}
+							</a>
+						</div>
+					</div>
+				{%- endif -%}
+				</div>
+			{%- endfor -%}
+			</div>
+		{%- endfor -%}
+		<div class="evrow-foot"></div>
+	</div>
+</div>

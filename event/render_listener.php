@@ -18,6 +18,7 @@ class render_listener implements EventSubscriberInterface
 {
 	protected $auth;
 	protected $render;
+	protected $render_var = [];
 
 	public function __construct(
 		auth $auth,
@@ -45,9 +46,16 @@ class render_listener implements EventSubscriberInterface
 		}
 
 		$blocks[cnst::FOLDER]['index'] = [
-			'include'	=> cnst::TPL . 'calendarweekview.html',
-			'var'		=> $this->render->get_vars(),
+			'include'	=> cnst::TPL . 'weekview.html',
+			'var'		=> $this->render->get_days_var(),
 		];
+
+		$blocks[cnst::FOLDER]['header'] = [
+			'include'	=> cnst::TPL . 'header.html',
+			'var'		=> $this->render->get_header_var(),
+		];
+
+		$this->render_var = $this->render->get_render_var();
 
 		$event['blocks'] = $blocks;
 	}

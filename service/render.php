@@ -6,7 +6,7 @@
 * @license GNU General Public License, version 2 (GPL-2.0)
 */
 
-namespace marttiphpbb\calendarweekview\controller;
+namespace marttiphpbb\calendarweekview\service;
 
 use phpbb\event\dispatcher;
 use phpbb\language\language;
@@ -53,23 +53,9 @@ class render
 	{
 		$this->language->add_lang('weekview', cnst::FOLDER);
 
-		$today_jd = $this->user_today->get_jd();
-
-		$month_start_jd = cal_to_jd(CAL_GREGORIAN, $month, 1, $year);
-		$month_days_num = cal_days_in_month(CAL_GREGORIAN, $month, $year);
-		$month_end_jd = $month_start_jd + $month_days_num;
-		$month_start_weekday = jddayofweek($month_start_jd);
-
-		$first_weekday = $this->store->get_first_weekday();
-		$days_prefill = $month_start_weekday - $first_weekday;
-		$days_prefill += $days_prefill < 0 ? 7 : 0;
-
-		$days_postfill = 6 - (($month_days_num + $days_prefill) % 7);
-		$days_postfill = $days_postfill == 6 ? -1 : $days_postfill;
-
-		$start_jd = $month_start_jd - $days_prefill;
-		$end_jd = $month_end_jd + $days_postfill;
-		$days_num = $end_jd - $start_jd;
+		$start_jd = $this->user_today->get_jd();
+		$end_jd = $start_jd + 7;
+		$days_num = 7;
 
 		if ($this->store->get_show_moon_phase())
 		{
@@ -101,12 +87,11 @@ class render
 		foreach($events as $e)
 		{
 			$topic = new topic($e['topic_id'], $e['forum_id'], $e['topic_title']);
-			$calendar_event = new calendar_event($e['start_jd'], $e['end_jd'], $topic, $dayspan);
+			$calendar_event = new calendar_event($e['start_jd'], $e['end_jd'], $topic);
 			$row_container->add_calendar_event($calendar_event);
 		}
 
 		$col = 0;
-		$year_begin_jd = cal_to_jd(CAL_GREGORIAN, 1, 1, $year);
 		$total_dayspan = new dayspan($start_jd, $end_jd);
 		$rows = $row_container->get_rows();
 
@@ -136,7 +121,6 @@ class render
 						'YEAR'				=> $year,
 						'TODAY_JD'			=> $today_jd,
 						'SHOW_ISOWEEK'		=> $this->store->get_show_isoweek(),
-						'SHOW_TODAY'		=> $this->store->get_show_today(),
 						'SHOW_MOON_PHASE'	=> $this->store->get_show_moon_phase(),
 						'LOAD_STYLESHEET'	=> $this->store->get_load_stylesheet(),
 						'EXTRA_STYLESHEET'	=> $this->store->get_extra_stylesheet(),
@@ -227,16 +211,21 @@ class render
 			$col++;
 		}
 
-		$this->pagination->render(
-			$year,
-			$month,
-			$this->store->get_pag_show_prev_next(),
-			$this->store->get_pag_neighbours()
-		);
-
-		make_jumpbox(append_sid($this->root_path . 'viewforum.' . $this->php_ext));
-
-		$title = $this->language->lang('MARTTIPHPBB_CALENDARMONTHVIEW_CALENDAR');
 		return $this->helper->render('month.html', $title);
+	}
+
+	public function get_days_var():array
+	{
+		return [];
+	}
+
+	public function get_header_var():array
+	{
+		return [];
+	}
+
+	public function get_render_var():array
+	{
+		return [];
 	}
 }

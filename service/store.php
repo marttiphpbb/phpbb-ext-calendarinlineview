@@ -127,16 +127,6 @@ class store
 		return $this->get_all()[$name];
 	}
 
-	public function set_show_today(bool $show_today):void
-	{
-		$this->set_boolean('show_today', $show_today);
-	}
-
-	public function get_show_today():bool
-	{
-		return $this->get_boolean('show_today');
-	}
-
 	public function set_show_isoweek(bool $show_isoweek):void
 	{
 		$this->set_boolean('show_isoweek', $show_isoweek);

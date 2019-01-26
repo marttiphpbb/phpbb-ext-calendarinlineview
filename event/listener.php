@@ -31,17 +31,4 @@ class listener implements EventSubscriberInterface
 
 		$event['lang_set_ext'] = $lang_set_ext;
 	}
-
-	public function get_date():array
-	{
-		$now = $this->user->create_datetime();
-		$time_offset = $now->getOffset();
-		return phpbb_gmgetdate($now->getTimestamp() + $time_offset);
-	}
-
-	public function get_jd():int
-	{
-		$now = $this->get_date();
-		return cal_to_jd(CAL_GREGORIAN, $now['mon'], $now['mday'], $now['year']);
-	}
 }
