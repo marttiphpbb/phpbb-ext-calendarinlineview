@@ -22,6 +22,8 @@ use marttiphpbb\calendarweekview\util\moon_phase;
 
 class render
 {
+	const DAYS = 7;
+
 	protected $dispatcher;
 	protected $php_ext;
 	protected $language;
@@ -29,6 +31,9 @@ class render
 	protected $store;
 	protected $user_today;
 	protected $user_time;
+
+	protected $row_count;
+	protected $var;
 
 	public function __construct(
 		dispatcher $dispatcher,
@@ -49,13 +54,20 @@ class render
 		$this->user_time = $user_time;
 	}
 
-	public function get_var():array
+	public function add_lang():void
 	{
 		$this->language->add_lang('weekview', cnst::FOLDER);
+	}
+
+	public function get_var():array
+	{
+		if (isset($this->var))
+		{
+			return $this->var;
+		}
 
 		$start_jd = $this->user_today->get_jd();
-		$end_jd = $start_jd + 7;
-		$days_num = 7;
+		$end_jd = $start_jd + self::DAYS;
 
 		if ($this->store->get_show_moon_phase())
 		{
@@ -92,13 +104,60 @@ class render
 		}
 
 		$col = 0;
-		$total_dayspan = new dayspan($start_jd, $end_jd);
 		$rows = $row_container->get_rows();
+
+		$this->var = [
+			'days'		=> [],
+			'months'	=> [],
+			'eventrows'	=> [],
+		];
+
+		$week_dayspan = new dayspan($start_jd, $end_jd);
+
+		foreach($rows as $row)
+		{
+			$row_ary = [];
+			$segments = $row->get_segments($week_dayspan);
+
+			foreach($segments as $segment)
+			{
+				if ($segment instanceof calendar_event)
+				{
+					$topic = $segment->get_topic();
+
+					$params = [
+						't'		=> $topic->get_topic_id(),
+						'f'		=> $topic->get_forum_id(),
+					];
+
+					$link = append_sid($this->root_path . 'viewtopic.' . $this->php_ext, $params);
+
+					$segment_ary = [
+						'topic_id'		=> $topic->get_topic_id(),
+						'forum_id'		=> $topic->get_forum_id(),
+						'topic_title'	=> $topic->get_topic_title(),
+						'topic_link'	=> $link,
+						'flex'			=> $segment->get_overlap_day_count($week_dayspan),
+						's_start'		=> $week_dayspan->contains_day($segment->get_start_jd()),
+						's_end'			=> $week_dayspan->contains_day($segment->get_end_jd()),
+					];
+				}
+				else if ($segment instanceof dayspan)
+				{
+					$segment_ary = [
+						'flex'	=> $segment->get_overlap_day_count($week_dayspan),
+					];
+				}
+
+				$row_ary[] = $segment_ary;
+			}
+
+			$this->var['eventrows'][] = $row_ary;
+		}
 
 		for ($jd = $start_jd; $jd <= $end_jd; $jd++)
 		{
 			$first_day = !$col;
-			$weekcol = $col % 7;
 			$day = cal_from_jd($jd, CAL_GREGORIAN);
 
 			if ($day['dayname'] === 'Monday' || $first_day)
@@ -112,67 +171,15 @@ class render
 				$month_abbrev = $this->language->lang(['datetime', $month_abbrev]);
 				$month_name = $this->language->lang(['datetime', $day['monthname']]);
 
-				if ($month === $day['month'])
-				{
-					$this->template->assign_vars([
-						'MONTH'				=> $month,
-						'MONTH_NAME'		=> $this->language->lang(['datetime', $day['monthname']]),
-						'MONTH_ABBREV'		=> $this->language->lang(['datetime', $month_abbrev]),
-						'YEAR'				=> $year,
-						'TODAY_JD'			=> $today_jd,
-						'SHOW_ISOWEEK'		=> $this->store->get_show_isoweek(),
-						'SHOW_MOON_PHASE'	=> $this->store->get_show_moon_phase(),
-						'LOAD_STYLESHEET'	=> $this->store->get_load_stylesheet(),
-						'EXTRA_STYLESHEET'	=> $this->store->get_extra_stylesheet(),
-						'HEIGHT_OFFSET'		=> $this->store->get_height_offset_week_cont(),
-						'HEIGHT_EVENT_ROW'	=> $this->store->get_height_event_row(),
-						'EVENT_ROW_COUNT'	=> count($rows),
-					]);
-				}
-			}
+				$days_in_month = cal_days_in_month(CAL_GREGORIAN, $day['month'], $day['year']);
 
-			if (!$weekcol)
-			{
-				$this->template->assign_block_vars('weeks', []);
-
-				foreach($rows as $row)
-				{
-					$this->template->assign_block_vars('weeks.eventrows', []);
-
-					$week_end_jd = $jd + 6;
-
-					$week_dayspan = new dayspan($jd, $week_end_jd);
-					$segments = $row->get_segments($week_dayspan);
-
-					foreach($segments as $segment)
-					{
-						if ($segment instanceof calendar_event)
-						{
-							$topic = $segment->get_topic();
-							$params = [
-								't'		=> $topic->get_topic_id(),
-								'f'		=> $topic->get_forum_id(),
-							];
-							$link = append_sid($this->root_path . 'viewtopic.' . $this->php_ext, $params);
-
-							$this->template->assign_block_vars('weeks.eventrows.eventsegments', [
-								'TOPIC_ID'			=> $topic->get_topic_id(),
-								'FORUM_ID'			=> $topic->get_forum_id(),
-								'TOPIC_TITLE'		=> $topic->get_topic_title(),
-								'TOPIC_LINK'		=> $link,
-								'FLEX'				=> $segment->get_overlap_day_count($week_dayspan),
-								'S_START'			=> $week_dayspan->contains_day($segment->get_start_jd()),
-								'S_END'				=> $week_dayspan->contains_day($segment->get_end_jd()),
-							]);
-						}
-						else if ($segment instanceof dayspan)
-						{
-							$this->template->assign_block_vars('weeks.eventrows.eventsegments', [
-								'FLEX'		=> $segment->get_overlap_day_count($week_dayspan),
-							]);
-						}
-					}
-				}
+				$this->var['months'][] = [
+					'flex'	=> min(self::DAYS, $days_in_month - $day['day'] + 1),
+					'month_abbrev'	=> $month_abbrev,
+					'month_name'	=> $month_name,
+					'month'			=> $day['month'],
+					'year'			=> $day['year'],
+				];
 			}
 
 			if (isset($mphase['jd']) && $mphase['jd'] === $jd)
@@ -189,43 +196,37 @@ class render
 				$moon_icon = false;
 			}
 
-			$this->template->assign_block_vars('weeks.weekdays', [
-				'JD'				=> $jd,
-				'WEEKDAY'			=> $day['dow'],
-				'WEEKDAY_NAME'		=> $this->language->lang(['datetime', $day['dayname']]),
-				'WEEKDAY_ABBREV'	=> $this->language->lang(['datetime', $day['abbrevdayname']]),
-				'WEEKDAY_CLASS'		=> strtolower($day['abbrevdayname']),
-				'MONTHDAY'			=> $day['day'],
-				'MONTH'				=> $day['month'],
-				'MONTH_NAME'		=> $month_name,
-				'MONTH_ABBREV'		=> $month_abbrev,
-				'YEAR'				=> $day['year'],
-				'YEARDAY'			=> $year_begin_jd - $jd + 1,
-				'ISOWEEK'			=> $isoweek,
-				'MOON_TITLE'		=> $moon_title,
-				'MOON_ICON'			=> $moon_icon,
-				'COL'				=> $col,
-				'WEEKCOL'			=> $weekcol,
-			]);
+			$this->var['days'][] = [
+				'jd'				=> $jd,
+				'weekday'			=> $day['dow'],
+				'weekday_name'		=> $this->language->lang(['datetime', $day['dayname']]),
+				'weekday_abbrev'	=> $this->language->lang(['datetime', $day['abbrevdayname']]),
+				'weekday_class'		=> strtolower($day['abbrevdayname']),
+				'monthday'			=> $day['day'],
+				'month'				=> $day['month'],
+				'month_name'		=> $month_name,
+				'month_abbrev'		=> $month_abbrev,
+				'year'				=> $day['year'],
+				'yearday'			=> $year_begin_jd - $jd + 1,
+				'isoweek'			=> $isoweek,
+				'moon_title'		=> $moon_title,
+				'moon_icon'			=> $moon_icon,
+				'col'				=> $col,
+			];
 
 			$col++;
 		}
 
-		return $this->helper->render('month.html', $title);
-	}
+		$this->var['render'] = [
+			'show_isoweek'		=> $this->store->get_show_isoweek(),
+			'show_moon_phase'	=> $this->store->get_show_moon_phase(),
+			'load_stylesheet'	=> $this->store->get_load_stylesheet(),
+			'extra_stylesheet'	=> $this->store->get_extra_stylesheet(),
+			'height_offset'		=> $this->store->get_height_offset_cont(),
+			'height_event_row'	=> $this->store->get_height_event_row(),
+			'row_count'			=> count($rows),
+		];
 
-	public function get_days_var():array
-	{
-		return [];
-	}
-
-	public function get_header_var():array
-	{
-		return [];
-	}
-
-	public function get_render_var():array
-	{
-		return [];
+		return $this->var;
 	}
 }

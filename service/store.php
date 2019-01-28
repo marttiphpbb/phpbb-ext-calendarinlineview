@@ -147,6 +147,26 @@ class store
 		return $this->get_boolean('show_moon_phase');
 	}
 
+	public function set_min_rows(int $min_rows):void
+	{
+		$this->set_int('min_rows', $min_rows);
+	}
+
+	public function get_min_rows():int
+	{
+		return $this->get_int('min_rows');
+	}
+
+	public function set_max_rows(int $max_rows):void
+	{
+		$this->set_int('max_rows', $max_rows);
+	}
+
+	public function get_max_rows():int
+	{
+		return $this->get_int('max_rows');
+	}
+
 	public function set_load_stylesheet(bool $load_stylesheet):void
 	{
 		$this->set_boolean('load_stylesheet', $load_stylesheet);
