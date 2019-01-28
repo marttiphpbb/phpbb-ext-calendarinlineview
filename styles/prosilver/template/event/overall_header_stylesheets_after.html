@@ -1,15 +1,15 @@
-{%- if marttiphpbb_calendarweekview -%}
+{%- if marttiphpbb_calendarinlineview -%}
     <style>
-        div.calendarweekview{
-            height: {{ (marttiphpbb_calendarweekview.height_offset + (marttiphpbb_calendarweekview.event_row_count * marttiphpbb_calendarweekview.height_event_row)) / 10 -}}em;
+        div.calendarinlineview{
+            height: {{ (marttiphpbb_calendarinlineview.height_offset + (marttiphpbb_calendarinlineview.event_row_count * marttiphpbb_calendarinlineview.height_event_row)) / 10 -}}em;
         }
     </style>
 
-    {%- if marttiphpbb_calendarweekview.load_stylesheet -%}
-	    {%- INCLUDECSS '@marttiphpbb_calendarweekview/weekview.css' -%}
+    {%- if marttiphpbb_calendarinlineview.load_stylesheet -%}
+	    {%- INCLUDECSS '@marttiphpbb_calendarinlineview/inlineview.css' -%}
     {%- endif -%}
 
-    {%- if marttiphpbb_calendarweekview.extra_stylesheet -%}
-	    {%- INCLUDECSS marttiphpbb_calendarweekview.extra_stylesheet -%}
+    {%- if marttiphpbb_calendarinlineview.extra_stylesheet -%}
+	    {%- INCLUDECSS marttiphpbb_calendarinlineview.extra_stylesheet -%}
     {%- endif -%}
 {%- endif -%}

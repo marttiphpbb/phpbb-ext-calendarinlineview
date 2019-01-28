@@ -1,17 +1,17 @@
 <?php
 /**
-* phpBB Extension - marttiphpbb calendarweekview
+* phpBB Extension - marttiphpbb calendarinlineview
 * @copyright (c) 2019 marttiphpbb <info@martti.be>
 * @license GNU General Public License, version 2 (GPL-2.0)
 */
 
-namespace marttiphpbb\calendarweekview\event;
+namespace marttiphpbb\calendarinlineview\event;
 
 use phpbb\controller\helper;
 use phpbb\event\data as event;
 use phpbb\auth\auth;
-use marttiphpbb\calendarweekview\service\render;
-use marttiphpbb\calendarweekview\util\cnst;
+use marttiphpbb\calendarinlineview\service\render;
+use marttiphpbb\calendarinlineview\util\cnst;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class render_listener implements EventSubscriberInterface
@@ -60,7 +60,7 @@ class render_listener implements EventSubscriberInterface
 		if (isset($template_events[cnst::FOLDER]['index']))
 		{
 			$blocks[cnst::FOLDER]['index'] = [
-				'include'	=> cnst::TPL . 'weekview.html',
+				'include'	=> cnst::TPL . 'inlineview.html',
 				'var'		=> $this->var['days'],
 			];
 		}
@@ -72,8 +72,6 @@ class render_listener implements EventSubscriberInterface
 				'var'		=> $this->var['months'],
 			];
 		}
-
-		$this->overall_template_vars = $this->render->get_overall_template_vars();
 
 		$event['blocks'] = $blocks;
 	}
@@ -88,7 +86,7 @@ class render_listener implements EventSubscriberInterface
 		error_log(json_encode($this->var));
 
 		$context = $event['context'];
-		$context['marttiphpbb_calendarweekview'] = $this->var['render'];
+		$context['marttiphpbb_calendarinlineview'] = $this->var['render'];
 		$event['context'] = $context;
 	}
 }

@@ -1,15 +1,15 @@
 <?php
 /**
-* phpBB Extension - marttiphpbb calendarweekview
+* phpBB Extension - marttiphpbb calendarinlineview
 * @copyright (c) 2019 marttiphpbb <info@martti.be>
 * @license GNU General Public License, version 2 (GPL-2.0)
 */
 
-namespace marttiphpbb\calendarweekview\service;
+namespace marttiphpbb\calendarinlineview\service;
 
 use phpbb\config\db_text as config_text;
 use phpbb\cache\driver\driver_interface as cache;
-use marttiphpbb\calendarweekview\util\cnst;
+use marttiphpbb\calendarinlineview\util\cnst;
 
 class store
 {

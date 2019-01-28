@@ -1,14 +1,14 @@
 <?php
 /**
-* phpBB Extension - marttiphpbb calendarweekview
+* phpBB Extension - marttiphpbb calendarinlineview
 * @copyright (c) 2019 marttiphpbb <info@martti.be>
 * @license GNU General Public License, version 2 (GPL-2.0)
 */
 
-namespace marttiphpbb\calendarweekview\event;
+namespace marttiphpbb\calendarinlineview\event;
 
 use phpbb\event\data as event;
-use marttiphpbb\calendarweekview\util\cnst;
+use marttiphpbb\calendarinlineview\util\cnst;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class listener implements EventSubscriberInterface

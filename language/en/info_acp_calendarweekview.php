@@ -1,7 +1,7 @@
 <?php
 
 /**
-* phpBB Extension - marttiphpbb calendarweekview
+* phpBB Extension - marttiphpbb calendarinlineview
 * @copyright (c) 2019 marttiphpbb <info@martti.be>
 * @license GNU General Public License, version 2 (GPL-2.0)
 */
@@ -18,10 +18,10 @@ if (empty($lang) || !is_array($lang))
 
 $lang = array_merge($lang, [
 
-	'ACP_MARTTIPHPBB_CALENDARWEEKVIEW'
-	=> 'Calendar Week View',
-	'ACP_MARTTIPHPBB_CALENDARWEEKVIEW_PLACEMENT_INDEX'
+	'ACP_MARTTIPHPBB_CALENDARINLINEVIEW'
+	=> 'Calendar Inline View',
+	'ACP_MARTTIPHPBB_CALENDARINLINEVIEW_PLACEMENT_INDEX'
 	=> 'Placement On Index',
-	'ACP_MARTTIPHPBB_CALENDARWEEKVIEW_RENDERING'
+	'ACP_MARTTIPHPBB_CALENDARINLINEVIEW_RENDERING'
 	=> 'Rendering',
 ]);

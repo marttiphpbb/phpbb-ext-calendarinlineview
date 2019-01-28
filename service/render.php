@@ -1,24 +1,24 @@
 <?php
 
 /**
-* phpBB Extension - marttiphpbb calendarweekview
+* phpBB Extension - marttiphpbb calendarinlineview
 * @copyright (c) 2019 marttiphpbb <info@martti.be>
 * @license GNU General Public License, version 2 (GPL-2.0)
 */
 
-namespace marttiphpbb\calendarweekview\service;
+namespace marttiphpbb\calendarinlineview\service;
 
 use phpbb\event\dispatcher;
 use phpbb\language\language;
-use marttiphpbb\calendarweekview\render\row_container;
-use marttiphpbb\calendarweekview\value\topic;
-use marttiphpbb\calendarweekview\value\dayspan;
-use marttiphpbb\calendarweekview\value\calendar_event;
-use marttiphpbb\calendarweekview\service\store;
-use marttiphpbb\calendarweekview\service\user_today;
-use marttiphpbb\calendarweekview\service\user_time;
-use marttiphpbb\calendarweekview\util\cnst;
-use marttiphpbb\calendarweekview\util\moon_phase;
+use marttiphpbb\calendarinlineview\render\row_container;
+use marttiphpbb\calendarinlineview\value\topic;
+use marttiphpbb\calendarinlineview\value\dayspan;
+use marttiphpbb\calendarinlineview\value\calendar_event;
+use marttiphpbb\calendarinlineview\service\store;
+use marttiphpbb\calendarinlineview\service\user_today;
+use marttiphpbb\calendarinlineview\service\user_time;
+use marttiphpbb\calendarinlineview\util\cnst;
+use marttiphpbb\calendarinlineview\util\moon_phase;
 
 class render
 {
@@ -56,7 +56,7 @@ class render
 
 	public function add_lang():void
 	{
-		$this->language->add_lang('weekview', cnst::FOLDER);
+		$this->language->add_lang('inlineview', cnst::FOLDER);
 	}
 
 	public function get_var():array
@@ -174,7 +174,7 @@ class render
 				$days_in_month = cal_days_in_month(CAL_GREGORIAN, $day['month'], $day['year']);
 
 				$this->var['months'][] = [
-					'flex'	=> min(self::DAYS, $days_in_month - $day['day'] + 1),
+					'flex'			=> min(self::DAYS, $days_in_month - $day['day'] + 1),
 					'month_abbrev'	=> $month_abbrev,
 					'month_name'	=> $month_name,
 					'month'			=> $day['month'],

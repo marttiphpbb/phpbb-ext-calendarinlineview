@@ -1,41 +1,41 @@
 services:
-    marttiphpbb.calendarweekview.listener:
-        class: marttiphpbb\calendarweekview\event\listener
+    marttiphpbb.calendarinlineview.listener:
+        class: marttiphpbb\calendarinlineview\event\listener
         tags:
             - { name: event.listener }
 
-    marttiphpbb.calendarweekview.render_listener:
-        class: marttiphpbb\calendarweekview\event\render_listener
+    marttiphpbb.calendarinlineview.render_listener:
+        class: marttiphpbb\calendarinlineview\event\render_listener
         arguments:
             - '@auth'
-            - '@marttiphpbb.calendarweekview.render'
+            - '@marttiphpbb.calendarinlineview.render'
         tags:
             - { name: event.listener }
 
-    marttiphpbb.calendarweekview.store:
-        class: marttiphpbb\calendarweekview\service\store
+    marttiphpbb.calendarinlineview.store:
+        class: marttiphpbb\calendarinlineview\service\store
         arguments:
             - '@config_text'
             - '@cache.driver'
 
-    marttiphpbb.calendarweekview.user_today:
-        class: marttiphpbb\calendarweekview\service\user_today
+    marttiphpbb.calendarinlineview.user_today:
+        class: marttiphpbb\calendarinlineview\service\user_today
         arguments:
             - '@user'
 
-    marttiphpbb.calendarweekview.user_time:
-        class: marttiphpbb\calendarweekview\service\user_time
+    marttiphpbb.calendarinlineview.user_time:
+        class: marttiphpbb\calendarinlineview\service\user_time
         arguments:
             - '@user'
-            - '@marttiphpbb.calendarweekview.store'
+            - '@marttiphpbb.calendarinlineview.store'
 
-    marttiphpbb.calendarweekview.render:
-        class: marttiphpbb\calendarweekview\service\render
+    marttiphpbb.calendarinlineview.render:
+        class: marttiphpbb\calendarinlineview\service\render
         arguments:
             - '@dispatcher'
             - '%core.php_ext%'
             - '@language'
             - '%core.root_path%'
-            - '@marttiphpbb.calendarweekview.store'
-            - '@marttiphpbb.calendarweekview.user_today'
-            - '@marttiphpbb.calendarweekview.user_time'
+            - '@marttiphpbb.calendarinlineview.store'
+            - '@marttiphpbb.calendarinlineview.user_today'
+            - '@marttiphpbb.calendarinlineview.user_time'

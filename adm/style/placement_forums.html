@@ -1,18 +1,18 @@
-{%- extends '@marttiphpbb_calendarweekview/base.html' -%}
+{%- extends '@marttiphpbb_calendarinlineview/base.html' -%}
 
 {%- block heading -%}
-	{{- lang('ACP_MARTTIPHPBB_CALENDARWEEKVIEW_PLACEMENT_FORUMS') -}}
+	{{- lang('ACP_MARTTIPHPBB_CALENDARINLINEVIEW_PLACEMENT_FORUMS') -}}
 {%- endblock -%}
 
 {%- block form_content -%}
 	<fieldset>
 		{%- embed '@marttiphpbb_overallpageblocks/dl.html' with {'name': 'index'} -%}
 			{%- block label -%}
-				{{- lang('ACP_MARTTIPHPBB_CALENDARWEEKVIEW_PLACEMENT_INDEX') -}}
+				{{- lang('ACP_MARTTIPHPBB_CALENDARINLINEVIEW_PLACEMENT_INDEX') -}}
 			{%- endblock -%}
 			{%- block explain -%}
 				<br>
-				{{- lang('ACP_MARTTIPHPBB_CALENDARWEEKVIEW_PLACEMENT_INDEX_EXPLAIN') -}}
+				{{- lang('ACP_MARTTIPHPBB_CALENDARINLINEVIEW_PLACEMENT_INDEX_EXPLAIN') -}}
 			{%- endblock -%}
 		{%- endembed -%}
 	</fieldset>

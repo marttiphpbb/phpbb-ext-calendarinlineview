@@ -1,4 +1,4 @@
-# phpBB Extension - marttiphpbb Calendar Week View
+# phpBB Extension - marttiphpbb Calendar Inline View
 
 [Topic on phpbb.com](https://www.phpbb.com/community/viewtopic.php?f=456&t=)
 
@@ -6,7 +6,7 @@
 
 ## Description
 
-This phpBB extension provides a Calendar Week View for the [Calendar extension set](https://github.com/marttiphpbb/phpbb-ext-calendarmono/blob/master/doc/calendar-set.md)
+This phpBB extension provides a Calendar Inline View for the [Calendar extension set](https://github.com/marttiphpbb/phpbb-ext-calendarmono/blob/master/doc/calendar-set.md)
 
 ## Screenshot
 
@@ -26,18 +26,18 @@ When it's not possible for you to have PHP compiled with --enable-calendar see t
 
 You can install this on the latest release of phpBB 3.2 by following the steps below:
 
-* Create `marttiphpbb/calendarweekview` in the `ext` directory.
-* Download and unpack the repository into `ext/marttiphpbb/calendarweekview`
-* Enable `Calendar Week View` in the ACP at `Customise -> Manage extensions`.
+* Create `marttiphpbb/calendarinlineview` in the `ext` directory.
+* Download and unpack the repository into `ext/marttiphpbb/calendarinlineview`
+* Enable `Calendar Inline View` in the ACP at `Customise -> Manage extensions`.
 
 ## Uninstall
 
-* Disable `Calendar Week View` in the ACP at `Customise -> Extension Management -> Extensions`.
-* To permanently uninstall, click `Delete Data`. Optionally delete the `/ext/marttiphpbb/calendarweekview` directory.
+* Disable `Calendar Inline View` in the ACP at `Customise -> Extension Management -> Extensions`.
+* To permanently uninstall, click `Delete Data`. Optionally delete the `/ext/marttiphpbb/calendarinlineview` directory.
 
 ## Support
 
-* Report bugs and other issues to the [Issue Tracker](https://github.com/marttiphpbb/phpbb-ext-calendarweekview/issues).
+* Report bugs and other issues to the [Issue Tracker](https://github.com/marttiphpbb/phpbb-ext-calendarinlineview/issues).
 
 ## License
 

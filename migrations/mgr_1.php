@@ -1,13 +1,13 @@
 <?php
 /**
-* phpBB Extension - marttiphpbb calendarweekview
+* phpBB Extension - marttiphpbb calendarinlineview
 * @copyright (c) 2019 marttiphpbb <info@martti.be>
 * @license GNU General Public License, version 2 (GPL-2.0)
 */
 
-namespace marttiphpbb\calendarweekview\migrations;
+namespace marttiphpbb\calendarinlineview\migrations;
 
-use marttiphpbb\calendarweekview\util\cnst;
+use marttiphpbb\calendarinlineview\util\cnst;
 
 class mgr_1 extends \phpbb\db\migration\migration
 {
@@ -30,7 +30,7 @@ class mgr_1 extends \phpbb\db\migration\migration
 				'acp',
 				cnst::L_ACP,
 				[
-					'module_basename'	=> '\marttiphpbb\calendarweekview\acp\main_module',
+					'module_basename'	=> '\marttiphpbb\calendarinlineview\acp\main_module',
 					'modes'				=> [
 						'placement_index',
 						'rendering',

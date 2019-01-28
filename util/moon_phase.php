@@ -1,6 +1,6 @@
 <?php
 /**
-* @package phpBB Extension - marttiphpbb calendarweekview
+* @package phpBB Extension - marttiphpbb calendarinlineview
 * @copyright (c) 2019 marttiphpbb <info@martti.be>
 * @license GNU General Public License, version 2 (GPL-2.0)
 * Based on:
@@ -13,9 +13,9 @@
 * http://www.obsid.org/2008/05/calculate-moon-phase-data-with-php.html
 */
 
-namespace marttiphpbb\calendarweekview\util;
+namespace marttiphpbb\calendarinlineview\util;
 
-use marttiphpbb\calendarweekview\util\cnst;
+use marttiphpbb\calendarinlineview\util\cnst;
 
 class moon_phase
 {

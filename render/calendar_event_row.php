@@ -1,15 +1,15 @@
 <?php
 
 /**
-* phpBB Extension - marttiphpbb calendarweekview
+* phpBB Extension - marttiphpbb calendarinlineview
 * @copyright (c) 2019 marttiphpbb <info@martti.be>
 * @license GNU General Public License, version 2 (GPL-2.0)
 */
 
-namespace marttiphpbb\calendarweekview\render;
+namespace marttiphpbb\calendarinlineview\render;
 
-use marttiphpbb\calendarweekview\value\dayspan;
-use marttiphpbb\calendarweekview\value\calendar_event;
+use marttiphpbb\calendarinlineview\value\dayspan;
+use marttiphpbb\calendarinlineview\value\calendar_event;
 
 class calendar_event_row
 {

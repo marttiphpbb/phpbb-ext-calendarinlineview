@@ -1,19 +1,19 @@
 <?php
 /**
-* phpBB Extension - marttiphpbb calendarweekview
+* phpBB Extension - marttiphpbb calendarinlineview
 * @copyright (c) 2019 marttiphpbb <info@martti.be>
 * @license GNU General Public License, version 2 (GPL-2.0)
 */
 
-namespace marttiphpbb\calendarweekview\util;
+namespace marttiphpbb\calendarinlineview\util;
 
 class cnst
 {
-	const FOLDER = 'marttiphpbb/calendarweekview';
-	const ID = 'marttiphpbb_calendarweekview';
+	const FOLDER = 'marttiphpbb/calendarinlineview';
+	const ID = 'marttiphpbb_calendarinlineview';
 	const PREFIX = self::ID . '_';
 	const CACHE_ID = '_' . self::ID;
-	const L = 'MARTTIPHPBB_CALENDARWEEKVIEW';
+	const L = 'MARTTIPHPBB_CALENDARINLINEVIEW';
 	const L_ACP = 'ACP_' . self::L;
 	const L_MCP = 'MCP_' . self::L;
 	const TPL = '@' . self::ID . '/';
