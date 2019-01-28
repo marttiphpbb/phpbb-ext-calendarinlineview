@@ -21,6 +21,7 @@ class mgr_2 extends \phpbb\db\migration\migration
 	public function update_data()
 	{
 		$data = [
+			'days_num'					=> 7,
 			'min_rows'					=> 5,
 			'max_rows'					=> 30,
 			'show_isoweek'				=> false,

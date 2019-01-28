@@ -32,6 +32,11 @@ $lang = array_merge($lang, [
 	'ACP_MARTTIPHPBB_CALENDARWEEKVIEW_MOON_PHASE'
 	=> 'Display the moon phase',
 
+	'ACP_MARTTIPHPBB_CALENDARWEEKVIEW_DAYS_NUM'
+	=> 'Number of days',
+	'ACP_MARTTIPHPBB_CALENDARWEEKVIEW_DAYS_NUM_EXPLAIN'
+	=> 'Although this extension is called Calendar Week View
+	it is possible to set another period length than 7 days.',
 
 	'ACP_MARTTIPHPBB_CALENDARWEEKVIEW_TIME_FORMAT'
 	=> 'Time format',
@@ -45,6 +50,13 @@ $lang = array_merge($lang, [
 	=> 'Default time format',
 	'ACP_MARTTIPHPBB_CALENDARWEEKVIEW_DEFAULT_TIME_FORMAT_EXPLAIN'
 	=> 'See the %1$sPHP date() function%2$s for defining the format.',
+
+	'ACP_MARTTIPHPBB_CALENDARWEEKVIEW_EVENT_ROWS'
+	=> 'Event rows',
+	'ACP_MARTTIPHPBB_CALENDARWEEKVIEW_MIN_ROWS'
+	=> 'Minimum event rows',
+	'ACP_MARTTIPHPBB_CALENDARWEEKVIEW_MAX_ROWS'
+	=> 'Maximum event rows',
 
 	'ACP_MARTTIPHPBB_CALENDARWEEKVIEW_HEIGHT_CONTAINER'
 	=> 'Height of the container',

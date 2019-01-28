@@ -147,6 +147,16 @@ class store
 		return $this->get_boolean('show_moon_phase');
 	}
 
+	public function get_days_num():int
+	{
+		return $this->get_int('days_num');
+	}
+
+	public function set_days_num(int $days_num):void
+	{
+		$this->set_int('days_num', $days_num);
+	}
+
 	public function set_min_rows(int $min_rows):void
 	{
 		$this->set_int('min_rows', $min_rows);
