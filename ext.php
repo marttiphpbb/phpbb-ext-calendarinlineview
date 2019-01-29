@@ -9,9 +9,6 @@ namespace marttiphpbb\calendarinlineview;
 
 class ext extends \phpbb\extension\base
 {
- 	/**
-	 * phpBB 3.2.5+ and PHP 7.1+
-	 */
 	public function is_enableable()
 	{
 		$config = $this->container->get('config');

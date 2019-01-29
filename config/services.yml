@@ -1,11 +1,6 @@
 services:
     marttiphpbb.calendarinlineview.listener:
         class: marttiphpbb\calendarinlineview\event\listener
-        tags:
-            - { name: event.listener }
-
-    marttiphpbb.calendarinlineview.render_listener:
-        class: marttiphpbb\calendarinlineview\event\render_listener
         arguments:
             - '@auth'
             - '@marttiphpbb.calendarinlineview.render'
