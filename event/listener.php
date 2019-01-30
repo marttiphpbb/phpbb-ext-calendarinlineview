@@ -19,6 +19,8 @@ class listener implements EventSubscriberInterface
 	protected $auth;
 	protected $render;
 	protected $var;
+	protected $forum_id;
+	protected $page;
 
 	public function __construct(
 		auth $auth,
@@ -49,36 +51,37 @@ class listener implements EventSubscriberInterface
 
 	public function core_index_modify_page_title(event $event):void
 	{
+		$this->page = 'index';
 		error_log('Index');
 	}
 
 	public function core_viewforum_modify_page_title(event $event):void
 	{
-		$forum_id = $event['forum_id'];
+		$this->forum_id = $event['forum_id'];
+		$this->page = 'viewforum';
 
 		error_log('Viewforum, forum id: ' . $forum_id);
 	}
 
 	public function core_viewtopic_modify_page_title(event $event):void
 	{
-		$forum_id = $event['forum_id'];
+		$this->forum_id = $event['forum_id'];
+		$this->page = 'viewtopic';
 
 		error_log('Viewtopic, forum id: ' . $forum_id);
 	}
 
 	public function core_posting_modify_template_vars(event $event):void
 	{
-		$forum_id = $event['forum_id'];
+		$this->forum_id = $event['forum_id'];
+		$this->page = 'posting';
 
 		error_log('Posting, forum id: ' . $forum_id);
 	}
 
 	public function add_blocks(event $event):void
 	{
-		$blocks = $event['blocks'];
-		$template_events = $event['template_events'];
-
-		if (!isset($template_events[cnst::FOLDER]))
+		if (!isset($this->page))
 		{
 			return;
 		}
@@ -88,15 +91,32 @@ class listener implements EventSubscriberInterface
 			return;
 		}
 
+		$blocks = $event['blocks'];
+		$template_events = $event['template_events'];
+
+		if (!isset($template_events[cnst::FOLDER]))
+		{
+			return;
+		}
+
 		$this->render->add_lang();
 
 		$this->var = $this->render->get_var();
 
+/*
+		'top'
+		'bottom'
+		'no_date_top'
+		'no_date_bottom'
+
+		$this->page . '_' . $tpl
+*/
+
 		if (isset($template_events[cnst::FOLDER]['index']))
 		{
 			$blocks[cnst::FOLDER]['index'] = [
-				'include'	=> cnst::TPL . 'inlineview.html',
-				'var'		=> $this->var['days'],
+				'include'	=> cnst::TPL . 'top.html',
+				'var'		=> $this->var,
 			];
 		}
 
@@ -118,7 +138,7 @@ class listener implements EventSubscriberInterface
 			return;
 		}
 
-		error_log(json_encode($this->var));
+		error_log(json_encode($this->var['render']));
 
 		$context = $event['context'];
 		$context['marttiphpbb_calendarinlineview'] = $this->var['render'];

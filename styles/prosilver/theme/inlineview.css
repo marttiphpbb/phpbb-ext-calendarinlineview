@@ -1,68 +1,52 @@
-div.marttiphpbbcalendarinlineview
-{
-	width: 100%;
-}
-
-div.marttiphpbbcalendarinlineview div.week-container
+div.marttiphpbb-calendarinlineview
 {
 	position: relative;
 	width: 100%;
 }
 
-div.marttiphpbbcalendarinlineview div.week
+div.marttiphpbb-calendarinlineview div.weekdays
 {
-	position:absolute;
-	width: 100%;
-	height: 100%;
+	position: absolute;
 	top: 0;
 	left: 0;
-}
-
-div.marttiphpbbcalendarinlineview div.week div.weekdays
-{
 	display:flex;
 	width: 100%;
 	height: 100%;
 }
 
-div.marttiphpbbcalendarinlineview div.week div.weekdays div.day
+div.marttiphpbb-calendarinlineview div.weekdays div.day
 {
 	flex: 1;
-	background: rgb(250, 250, 250);
 	margin: .15em;
 	border-radius: 1em;
-	border: 1px solid #ddd;
-}
-div.marttiphpbbcalendarinlineview div.week div.weekdays div.day.this-month
-{
 	background: #eee;
 	border: 1px solid #bbb;
 }
 
-div.marttiphpbbcalendarinlineview div.week div.weekdays div.day.today.this-month
+div.marttiphpbb-calendarinlineview div.weekdays div.day.this-month
 {
-	border: 2px solid #333;
+
 }
 
-div.marttiphpbbcalendarinlineview div.week div.weekdays div.day div.dayhead
+div.marttiphpbb-calendarinlineview div.weekdays div.day div.dayhead
 {
 	padding: .4em .8em;
 }
 
-div.marttiphpbbcalendarinlineview div.week div.weekdays div.day div.dayhead div.monthday
+div.marttiphpbb-calendarinlineview div.weekdays div.day div.dayhead div.monthday
 {
 	font-size: 1.8em;
 	float: left;
 }
 
-div.marttiphpbbcalendarinlineview div.week div.weekdays div.day div.dayhead div.weekday
+div.marttiphpbb-calendarinlineview div.weekdays div.day div.dayhead div.weekday
 {
 	font-size: 1.2em;
 	float: left;
 	padding: .1em .2em;
 }
 
-div.marttiphpbbcalendarinlineview div.week div.weekdays div.day div.dayhead div.moon
+div.marttiphpbb-calendarinlineview div.weekdays div.day div.dayhead div.moon
 {
 	font-size: 1.2em;
 	float: right;
@@ -71,12 +55,12 @@ div.marttiphpbbcalendarinlineview div.week div.weekdays div.day div.dayhead div.
 	margin: -.5em;
 }
 
-div.marttiphpbbcalendarinlineview div.week div.weekdays div.day div.dayhead div.moon span
+div.marttiphpbb-calendarinlineview div.weekdays div.day div.dayhead div.moon span
 {
 	z-index: 20;
 }
 
-div.marttiphpbbcalendarinlineview div.week div.weekdays div.day div.dayhead div.isoweek
+div.marttiphpbb-calendarinlineview div.weekdays div.day div.dayhead div.isoweek
 {
 	font-style: italic;
 	font-size: 0.9em;
@@ -93,37 +77,30 @@ div.marttiphpbbcalendarinlineview div.week div.weekdays div.day div.dayhead div.
 	}
 }
 
-div.marttiphpbbcalendarinlineview div.week div.weekdays div.day
-{
-	color: #dbd8e9;
-}
-
-div.marttiphpbbcalendarinlineview div.week div.weekdays div.day.this-month
+div.marttiphpbb-calendarinlineview div.weekdays div.day
 {
 	color: #45434e;
 }
 
-div.marttiphpbbcalendarinlineview div.week div.weekdays div.day.sat,
-div.marttiphpbbcalendarinlineview div.week div.weekdays div.day.sun
+div.marttiphpbb-calendarinlineview div.weekdays div.day.this-month
 {
-	background-color: #e8f5ff;
-	border-color: #dbdbf7;
+
 }
-div.marttiphpbbcalendarinlineview div.week div.weekdays div.day.this-month.sat,
-div.marttiphpbbcalendarinlineview div.week div.weekdays div.day.this-month.sun
+
+div.marttiphpbb-calendarinlineview div.weekdays div.day.sat,
+div.marttiphpbb-calendarinlineview div.weekdays div.day.sun
 {
 	background-color: #cadceb;
 	color: #3c3c42;
 	border-color: #a4c3d8;
 }
-
-div.marttiphpbbcalendarinlineview div.week div.weekdays div.day.this-month.sat.today,
-div.marttiphpbbcalendarinlineview div.week div.weekdays div.day.this-month.sun.today
+div.marttiphpbb-calendarinlineview div.weekdays div.day.this-month.sat,
+div.marttiphpbb-calendarinlineview div.weekdays div.day.this-month.sun
 {
-	border-color: #45555f;
+
 }
 
-div.marttiphpbbcalendarinlineview div.eventrows
+div.marttiphpbb-calendarinlineview div.eventrows
 {
 	display:flex;
 	flex-direction: column;
@@ -134,17 +111,18 @@ div.marttiphpbbcalendarinlineview div.eventrows
 	left: 0;
 }
 
-div.marttiphpbbcalendarinlineview div.eventrows div.evrow-head
+div.marttiphpbb-calendarinlineview div.eventrows div.evrow-head
 {
 	flex-basis: auto;
 	height: 3.5em;
 }
-div.marttiphpbbcalendarinlineview div.eventrows div.evrow-foot
+
+div.marttiphpbb-calendarinlineview div.eventrows div.evrow-foot
 {
 	flex-basis: auto;
 	height: 1.5em;
 }
-div.marttiphpbbcalendarinlineview div.eventrows div.evrow
+div.marttiphpbb-calendarinlineview div.eventrows div.evrow
 {
 	flex: 1;
 	display: flex;
@@ -152,12 +130,12 @@ div.marttiphpbbcalendarinlineview div.eventrows div.evrow
 	z-index: 10;
 }
 
-div.marttiphpbbcalendarinlineview div.eventrows div.evrow div.f-con
+div.marttiphpbb-calendarinlineview div.eventrows div.evrow div.f-con
 {
 	min-width: 0;
 }
 
-div.marttiphpbbcalendarinlineview div.eventrows div.evrow div.f-con div.ev
+div.marttiphpbb-calendarinlineview div.eventrows div.evrow div.f-con div.ev
 {
 	margin: .15em;
 	background: rgb(238, 246, 255);
@@ -167,28 +145,28 @@ div.marttiphpbbcalendarinlineview div.eventrows div.evrow div.f-con div.ev
 	min-width: 0;
 }
 
-div.marttiphpbbcalendarinlineview div.eventrows div.evrow:nth-child(even) div.f-con div.ev{
+div.marttiphpbb-calendarinlineview div.eventrows div.evrow:nth-child(even) div.f-con div.ev{
 	background: rgb(220, 235, 255);
 }
-div.marttiphpbbcalendarinlineview div.eventrows div.evrow div.ev.ev-start div.ev-overlay{
+div.marttiphpbb-calendarinlineview div.eventrows div.evrow div.ev.ev-start div.ev-overlay{
 	border-top-left-radius: .7em;
 	border-bottom-left-radius: .7em;
 }
-div.marttiphpbbcalendarinlineview div.eventrows div.evrow div.ev.ev-end div.ev-overlay{
+div.marttiphpbb-calendarinlineview div.eventrows div.evrow div.ev.ev-end div.ev-overlay{
 	border-top-right-radius: .7em;
 	border-bottom-right-radius: .7em;
 }
-div.marttiphpbbcalendarinlineview div.eventrows div.evrow div.ev div.ev-overlay{
+div.marttiphpbb-calendarinlineview div.eventrows div.evrow div.ev div.ev-overlay{
 	width: 100%;
 	height: 100%;
 }
-div.marttiphpbbcalendarinlineview div.eventrows div.evrow div.ev div.ev-overlay:hover,
-div.marttiphpbbcalendarinlineview div.eventrows div.evrow div.ev div.ev-overlay.hover
+div.marttiphpbb-calendarinlineview div.eventrows div.evrow div.ev div.ev-overlay:hover,
+div.marttiphpbb-calendarinlineview div.eventrows div.evrow div.ev div.ev-overlay.hover
 {
 	background: rgba(250, 225, 0, 0.2);
 }
 
-div.marttiphpbbcalendarinlineview div.eventrows div.evrow div.ev a
+div.marttiphpbb-calendarinlineview div.eventrows div.evrow div.ev a
 {
 	display:inline-block;
 	width: 100%;
@@ -202,49 +180,44 @@ div.marttiphpbbcalendarinlineview div.eventrows div.evrow div.ev a
 	padding-left: .3em;
 	min-width: 0;
 }
-div.marttiphpbbcalendarinlineview div.eventrows div.evrow div.f-con div.ev.ev-start
+div.marttiphpbb-calendarinlineview div.eventrows div.evrow div.f-con div.ev.ev-start
 {
 	border-top-left-radius: .7em;
 	border-bottom-left-radius: .7em;
 	border-left-style: solid;
 }
-div.marttiphpbbcalendarinlineview div.eventrows div.evrow div.f-con div.ev.ev-end
+div.marttiphpbb-calendarinlineview div.eventrows div.evrow div.f-con div.ev.ev-end
 {
 	border-top-right-radius: .7em;
 	border-bottom-right-radius: .7em;
 	border-right-style: solid;
 }
-div.marttiphpbbcalendarinlineview div.eventrows div.evrow div.f-con div.ev.topic-hilit
-{
-	border-width: 2px;
-	border-color: rgb(61, 99, 148);
-}
 
-div.marttiphpbbcalendarinlineview div.eventrows div.evrow div.flex-1
+div.marttiphpbb-calendarinlineview div.eventrows div.evrow div.flex-1
 {
 	flex: 1;
 }
-div.marttiphpbbcalendarinlineview div.eventrows div.evrow div.flex-2
+div.marttiphpbb-calendarinlineview div.eventrows div.evrow div.flex-2
 {
 	flex: 2;
 }
-div.marttiphpbbcalendarinlineview div.eventrows div.evrow div.flex-3
+div.marttiphpbb-calendarinlineview div.eventrows div.evrow div.flex-3
 {
 	flex: 3;
 }
-div.marttiphpbbcalendarinlineview div.eventrows div.evrow div.flex-4
+div.marttiphpbb-calendarinlineview div.eventrows div.evrow div.flex-4
 {
 	flex: 4;
 }
-div.marttiphpbbcalendarinlineview div.eventrows div.evrow div.flex-5
+div.marttiphpbb-calendarinlineview div.eventrows div.evrow div.flex-5
 {
 	flex: 5;
 }
-div.marttiphpbbcalendarinlineview div.eventrows div.evrow div.flex-6
+div.marttiphpbb-calendarinlineview div.eventrows div.evrow div.flex-6
 {
 	flex: 6;
 }
-div.marttiphpbbcalendarinlineview div.eventrows div.evrow div.flex-7
+div.marttiphpbb-calendarinlineview div.eventrows div.evrow div.flex-7
 {
 	flex: 7;
 }
