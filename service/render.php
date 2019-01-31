@@ -96,10 +96,12 @@ class render
 
 		$row_container = new row_container($this->store->get_min_rows(), $this->store->get_max_rows());
 
-		foreach($events as $e)
+		error_log(json_encode($events));
+
+		foreach($events as $event)
 		{
-			$topic = new topic($e['topic_id'], $e['forum_id'], $e['topic_title']);
-			$calendar_event = new calendar_event($e['start_jd'], $e['end_jd'], $topic);
+			$topic = new topic($event['topic_id'], $event['forum_id'], $event['topic_title']);
+			$calendar_event = new calendar_event($event['start_jd'], $event['end_jd'], $topic);
 			$row_container->add_calendar_event($calendar_event);
 		}
 
@@ -114,15 +116,22 @@ class render
 
 		$week_dayspan = new dayspan($start_jd, $end_jd);
 
+		error_log(json_encode($rows));
+
 		foreach($rows as $row)
 		{
 			$row_ary = [];
 			$segments = $row->get_segments($week_dayspan);
 
+			error_log('row segments: ' . json_encode($segments));
+
 			foreach($segments as $segment)
 			{
+				$segment_ary = [];
+
 				if ($segment instanceof calendar_event)
 				{
+					error_log('calendar');
 					$topic = $segment->get_topic();
 
 					$params = [
@@ -154,6 +163,8 @@ class render
 
 			$this->var['eventrows'][] = $row_ary;
 		}
+
+		error_log('eventrows: ' . json_encode($this->var['eventrows']));
 
 		for ($jd = $start_jd; $jd <= $end_jd; $jd++)
 		{
@@ -224,7 +235,7 @@ class render
 			'extra_stylesheet'	=> $this->store->get_extra_stylesheet(),
 			'height_offset'		=> $this->store->get_height_offset_cont(),
 			'height_event_row'	=> $this->store->get_height_event_row(),
-			'row_count'			=> count($rows),
+			'event_row_count'	=> count($rows),
 		];
 
 		return $this->var;

@@ -24,20 +24,18 @@
 				</div>
 			</div>
 		{%- endfor -%}
-		<div style="clear:both;"></div>
-
 	</div>
 	<div class="eventrows">
 		<div class="evrow-head"></div>
 		{%- for er in var.eventrows -%}
 			<div class="evrow">
-			{%- for e in er.eventsegments -%}
-				<div class="f-con flex-{{- e.flex -}}">
-				{%- if e.TOPIC_ID -%}
-					<div class="ev forum-{{- e.forum_id }}{%- if e.s_start %} ev-start{%- endif -%}{%- if e.s_end %} ev-end{%- endif -%}e.TOPIC_ID %}" data-topic="{{- e.topic_id -}}" data-forum="{{- e.forum_id -}}">
+			{%- for seg in er -%}
+				<div class="f-con flex-{{- seg.flex -}}">
+				{%- if seg.topic_id -%}
+					<div class="ev forum-{{- seg.forum_id }}{%- if seg.s_start %} ev-start{%- endif -%}{%- if seg.s_end %} ev-end{%- endif -%}" data-topic="{{- seg.topic_id -}}" data-forum="{{- seg.forum_id -}}">
 						<div class="ev-overlay">
-							<a href="{{- e.topic_link -}}" title="{{- e.topic_title -}}">
-								{{- e.topic_title -}}
+							<a href="{{- seg.topic_link -}}" title="{{- seg.topic_title -}}">
+								{{- seg.topic_title -}}
 							</a>
 						</div>
 					</div>
