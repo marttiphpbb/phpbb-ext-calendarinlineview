@@ -6,11 +6,9 @@
 					<div class="monthday">
 						{{- d.monthday -}}
 					</div>
-					{#
 					<div class="weekday">
 						{{- d.weekday_abbrev -}}
 					</div>
-					#}
 					{%- if var.render.show_moon_phase and d.moon_icon -%}
 						<div class="moon">
 							<span class="fa-stack" title="{{- d.moon_title -}}">

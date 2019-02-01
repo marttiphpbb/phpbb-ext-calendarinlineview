@@ -23,9 +23,9 @@ class moon_phase
 	* @param 	int $start_jd
 	* @param 	int $end_jd
 	* @return 	array
-	* 				phase 	0: new moon, 1: first quarter, 2: full moon, 3: 3th quarter
-	* 				time  	unix time
-	* 				jd 		Julian Day (for PHP functions)
+	* 	phase 	0: new moon, 1: first quarter, 2: full moon, 3: 3th quarter
+	* 	time  	unix time
+	* 	jd 		Julian Day (for PHP functions)
 	*/
 	public function find(int $start_jd, int $end_jd):array
 	{
@@ -153,7 +153,7 @@ class moon_phase
 				$phases[] = [
 					'phase'	=> $phase,
 					'time'	=> (int) round(($phase_time - 2440587.5) * 86400),
-					'jd'	=> (int) round($phase_time + .5),
+					'jd'	=> (int) round($phase_time - .5),
 				];
 			}
 		}
