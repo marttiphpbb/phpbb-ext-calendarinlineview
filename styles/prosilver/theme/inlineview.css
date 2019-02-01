@@ -21,11 +21,17 @@ div.marttiphpbb-calendarinlineview div.weekdays div.day
 	border-radius: 1em;
 	background: #d7d7d7;
 	color: #444;
+	display: flex;
 }
 
 div.marttiphpbb-calendarinlineview div.weekdays div.day div.day-info
 {
 	padding: .4em .8em;
+}
+
+div.marttiphpbb-calendarinlineview div.weekdays div.day div.day-info-bottom
+{
+	align-self: flex-end;
 }
 
 div.marttiphpbb-calendarinlineview div.weekdays div.day div.day-info.small
