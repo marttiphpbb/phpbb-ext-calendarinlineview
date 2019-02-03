@@ -1,6 +1,6 @@
 ;(function($, window, document) {
 	$('document').ready(function(){
-		var $ev = $('div.calendarinlineview div.month div.eventrows div.evrow div.ev');
+		var $ev = $('div.calendarinlineview div.eventrows div.evrow div.ev');
 		$ev.hover(function(){
 			var t = $(this).data('topic');
 			$ev.filter('[data-topic="' + t + '"]').find('div.ev-overlay').each(function(){

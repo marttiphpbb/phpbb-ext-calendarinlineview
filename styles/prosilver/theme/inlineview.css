@@ -44,58 +44,101 @@ div.marttiphpbb-calendarinlineview div.weekdays div.day div.day-info.mid
 	padding: .3em .8em;
 }
 
-div.marttiphpbb-calendarinlineview div.weekdays div.day div.day-info div.monthday
+div.marttiphpbb-calendarinlineview div.day-info div.monthday
 {
 	float: left;
 }
 
-div.marttiphpbb-calendarinlineview div.weekdays div.day div.day-info-small div.monthday
+div.marttiphpbb-calendarinlineview div.day-info-small div.monthday
 {
 	font-size: 1.1em;
 }
 
-div.marttiphpbb-calendarinlineview div.weekdays div.day div.day-info-mid div.monthday
+div.marttiphpbb-calendarinlineview div.day-info-mid div.monthday
 {
 	font-size: 1.4em;
 }
 
-div.marttiphpbb-calendarinlineview div.weekdays div.day div.day-info-big div.monthday
+div.marttiphpbb-calendarinlineview div.day-info-big div.monthday
 {
 	font-size: 1.8em;
 }
 
-div.marttiphpbb-calendarinlineview div.weekdays div.day div.day-info div.weekday
+div.marttiphpbb-calendarinlineview div.day-info div.weekday
 {
-	font-size: 1.2em;
 	float: left;
 	padding: .1em .2em;
 }
 
-div.marttiphpbb-calendarinlineview div.weekdays div.day div.day-info div.moon
+div.marttiphpbb-calendarinlineview div.day-info-small div.weekday
 {
-	font-size: 1.2em;
+	font-size: .8em;
+}
+div.marttiphpbb-calendarinlineview div.day-info-medium div.weekday
+{
+	font-size: .9em;
+}
+div.marttiphpbb-calendarinlineview div.day-info-big div.weekday
+{
+	font-size: 1.1em;
+}
+
+
+div.marttiphpbb-calendarinlineview div.day-info div.moon
+{
 	float: right;
 	padding: .1em .2em;
 	margin: -.5em;
 }
 
-div.marttiphpbb-calendarinlineview div.weekdays div.day div.day-info div.moon span
+div.marttiphpbb-calendarinlineview div.day-info-small div.moon
+{
+	font-size: .8em;
+}
+
+div.marttiphpbb-calendarinlineview div.day-info-mid div.moon
+{
+	font-size: 1em;
+}
+
+div.marttiphpbb-calendarinlineview div.day-info-big div.moon
+{
+	font-size: 1.3em;
+}
+
+div.marttiphpbb-calendarinlineview div.day-info div.moon span
 {
 	z-index: 1;
 }
 
-div.marttiphpbb-calendarinlineview div.weekdays div.day div.day-info div.isoweek
+div.marttiphpbb-calendarinlineview div.day-info div.isoweek
 {
 	font-style: italic;
-	font-size: 0.9em;
 	float: right;
 	clear: right;
 	padding: .1em .2em;
 }
 
+div.marttiphpbb-calendarinlineview div.day-info-small div.isoweek
+{
+	font-size: 0.7em;
+}
+
+div.marttiphpbb-calendarinlineview div.day-info-mid div.isoweek
+{
+	font-size: 0.8em;
+}
+
+div.marttiphpbb-calendarinlineview div.day-info-big div.isoweek
+{
+	font-size: .9em;
+}
+
 @media only screen and (max-width: 500px), only screen and (max-device-width: 500px)
 {
-	div.moon > span, div.isoweek, div.weekdays div.day div.weekday
+	div.marttiphpbb-calendarinlineview div.moon > span,
+	div.marttiphpbb-calendarinlineview div.isoweek,
+	div.marttiphpbb-calendarinlineview div.weekday
 	{
 		display: none;
 	}
@@ -120,7 +163,7 @@ div.marttiphpbb-calendarinlineview div.weekdays div.day.even-month.sun
 
 div.marttiphpbb-calendarinlineview div.eventrows
 {
-	display:flex;
+	display: flex;
 	flex-direction: column;
 }
 
@@ -136,12 +179,12 @@ div.marttiphpbb-calendarinlineview div.eventrows div.evrow-info-mid
 
 div.marttiphpbb-calendarinlineview div.eventrows div.evrow-info-small
 {
-	height: 5em;
+	height: 1.7em;
 }
 
 div.marttiphpbb-calendarinlineview div.eventrows div.evrow-fill
 {
-	height: 1em;
+	height: .7em;
 }
 
 div.marttiphpbb-calendarinlineview div.eventrows div.evrow

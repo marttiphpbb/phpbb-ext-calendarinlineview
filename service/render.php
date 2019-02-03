@@ -235,8 +235,6 @@ class render
 			'show_moon_phase'	=> $this->store->get_show_moon_phase(),
 			'load_stylesheet'	=> $this->store->get_load_stylesheet(),
 			'extra_stylesheet'	=> $this->store->get_extra_stylesheet(),
-			'height_offset'		=> $this->store->get_height_offset_cont(),
-			'height_event_row'	=> $this->store->get_height_event_row(),
 			'event_row_count'	=> count($rows),
 		];
 
