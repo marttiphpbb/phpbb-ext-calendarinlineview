@@ -1,10 +1,4 @@
 {%- if marttiphpbb_calendarinlineview -%}
-    <style>
-        div.marttiphpbb-calendarinlineview{
-            height: {{ (marttiphpbb_calendarinlineview.event_row_count * marttiphpbb_calendarinlineview.height_event_row) / 10 -}}em;
-        }
-    </style>
-
     {%- if marttiphpbb_calendarinlineview.load_stylesheet -%}
 	    {%- INCLUDECSS '@marttiphpbb_calendarinlineview/inlineview.css' -%}
     {%- endif -%}

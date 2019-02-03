@@ -25,8 +25,7 @@
 		{%- endfor -%}
 	</div>
 	<div class="eventrows">
-		{%- block evrow_fill_top -%}{%- endblock -%}
-		<div class="evrow-fill"></div>
+		<div class="{%- block evrow_fill_class_top -%}evrow-fill{%- endblock -%}"></div>
 		{%- for er in var.eventrows -%}
 			<div class="evrow">
 			{%- for seg in er -%}
@@ -44,7 +43,6 @@
 			{%- endfor -%}
 			</div>
 		{%- endfor -%}
-		<div class="evrow-fill"></div>
-		{%- block evrow_fill_bottom -%}{%- endblock -%}
+		<div class="{%- block evrow_fill_class_bottom -%}evrow-fill{%- endblock -%}"></div>
 	</div>
 </div>

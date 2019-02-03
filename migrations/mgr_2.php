@@ -28,8 +28,6 @@ class mgr_2 extends \phpbb\db\migration\migration
 			'show_moon_phase'			=> false,
 			'load_stylesheet'			=> true,
 			'extra_stylesheet'			=> '',
-			'height_event_row'			=> 20,
-			'height_offset_cont'		=> 50,
 			'derive_user_time_format'	=> true,
 			'default_time_format'		=> 'H:i',
 		];

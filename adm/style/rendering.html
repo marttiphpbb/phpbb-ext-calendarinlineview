@@ -112,43 +112,6 @@
 		{%- endembed -%}
 	</fieldset>
 
-
-	<fieldset>
-		<legend>
-			{{- lang('ACP_MARTTIPHPBB_CALENDARINLINEVIEW_HEIGHT_CONTAINER') -}}
-		</legend>
-
-		{%- embed '@marttiphpbb_calendarinlineview/include/number.html' -%}
-			{%- block label -%}
-				{{- lang('ACP_MARTTIPHPBB_CALENDARINLINEVIEW_HEIGHT_OFFSET') -}}
-			{%- endblock -%}
-			{%- block explain -%}
-				<br>
-				{{- lang('ACP_MARTTIPHPBB_CALENDARINLINEVIEW_HEIGHT_OFFSET_EXPLAIN') -}}
-			{%- endblock -%}
-			{%- block name -%}
-				height_offset_cont
-			{%- endblock -%}
-			{%- block value -%}
-				{{- HEIGHT_OFFSET_CONT -}}
-			{%- endblock -%}
-			{%- block attr %} min="1"{%- endblock -%}
-		{%- endembed -%}
-
-		{%- embed '@marttiphpbb_calendarinlineview/include/number.html' -%}
-			{%- block label -%}
-				{{- lang('ACP_MARTTIPHPBB_CALENDARINLINEVIEW_HEIGHT_EVENT_ROW') -}}
-			{%- endblock -%}
-			{%- block name -%}
-				height_event_row
-			{%- endblock -%}
-			{%- block value -%}
-				{{- HEIGHT_EVENT_ROW -}}
-			{%- endblock -%}
-			{%- block attr %} min="1"{%- endblock -%}
-		{%- endembed -%}
-	</fieldset>
-
 	<fieldset>
 		<legend>
 			{{- lang('ACP_MARTTIPHPBB_CALENDARINLINEVIEW_STYLESHEET') -}}

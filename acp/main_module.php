@@ -77,8 +77,6 @@ class main_module
 					$store->set_default_time_format($request->variable('default_time_format', ''));
 					$store->set_min_rows($request->variable('min_rows', 0));
 					$store->set_max_rows($request->variable('max_rows', 0));
-					$store->set_height_offset_cont($request->variable('height_offset_cont', 0));
-					$store->set_height_event_row($request->variable('height_event_row', 0));
 					$store->set_load_stylesheet($request->variable('load_stylesheet', 0) ? true : false);
 					$store->set_extra_stylesheet($request->variable('extra_stylesheet', ''));
 					$store->transaction_end();
@@ -94,8 +92,6 @@ class main_module
 					'DEFAULT_TIME_FORMAT'		=> $store->get_default_time_format(),
 					'MIN_ROWS'					=> $store->get_min_rows(),
 					'MAX_ROWS'					=> $store->get_max_rows(),
-					'HEIGHT_OFFSET_CONT'		=> $store->get_height_offset_cont(),
-					'HEIGHT_EVENT_ROW'			=> $store->get_height_event_row(),
 					'LOAD_STYLESHEET'			=> $store->get_load_stylesheet(),
 					'EXTRA_STYLESHEET'			=> $store->get_extra_stylesheet(),
 				]);

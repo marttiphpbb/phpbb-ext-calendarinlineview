@@ -197,26 +197,6 @@ class store
 		return $this->get_string('extra_stylesheet');
 	}
 
-	public function set_height_event_row(int $height_event_row):void
-	{
-		$this->set_int('height_event_row', $height_event_row);
-	}
-
-	public function get_height_event_row():int
-	{
-		return $this->get_int('height_event_row');
-	}
-
-	public function set_height_offset_cont(int $height_offset_cont):void
-	{
-		$this->set_int('height_offset_cont', $height_offset_cont);
-	}
-
-	public function get_height_offset_cont():int
-	{
-		return $this->get_int('height_offset_cont');
-	}
-
 	public function set_derive_user_time_format(bool $derive_user_time_format):void
 	{
 		$this->set_boolean('derive_user_time_format', $derive_user_time_format);
