@@ -4,7 +4,13 @@
 		{%- for m in var.months -%}
 			<div class="month{% if m.month % 2 == 0 %} even-month{% endif %} flex-{{- m.flex -}}">
 				{%- if m.flex > 2 -%}
-					{{- m.month_name -}}
+					{%- if m.link -%}
+						<a href="{{- m.link -}}">
+							{{- m.month_name -}}
+						</a>
+					{%- else -%}
+						{{- m.month_name -}}
+					{%- endif -%}
 				{%- endif -%}
 			</div>
 		{%- endfor -%}

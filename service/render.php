@@ -68,7 +68,7 @@ class render
 
 		$days_num = $this->store->get_days_num();
 
-		$start_jd = $this->user_today->get_jd() - 10;
+		$start_jd = $this->user_today->get_jd() - 17;
 		$end_jd = $start_jd + $days_num - 1;
 
 		if ($this->store->get_show_moon_phase())
@@ -134,13 +134,13 @@ class render
 						'f'		=> $topic->get_forum_id(),
 					];
 
-					$link = append_sid($this->root_path . 'viewtopic.' . $this->php_ext, $params);
+					$topic_link = append_sid($this->root_path . 'viewtopic.' . $this->php_ext, $params);
 
 					$segment_ary = [
 						'topic_id'		=> $topic->get_topic_id(),
 						'forum_id'		=> $topic->get_forum_id(),
 						'topic_title'	=> $topic->get_topic_title(),
-						'topic_link'	=> $link,
+						'topic_link'	=> $topic_link,
 						'flex'			=> $segment->get_overlap_day_count($week_dayspan),
 						's_start'		=> $week_dayspan->contains_day($segment->get_start_jd()),
 						's_end'			=> $week_dayspan->contains_day($segment->get_end_jd()),
@@ -159,10 +159,28 @@ class render
 			$this->var['eventrows'][] = $row_ary;
 		}
 
-		for ($jd = $start_jd; $jd <= $end_jd; $jd++)
-		{
+		for ($jd = $start_jd; $jd <= $end_jd; $jd++) {
 			$first_day = !$col;
 			$day = cal_from_jd($jd, CAL_GREGORIAN);
+
+			$link = '';
+			$year = $day['year'];
+			$month = $day['month'];
+			$monthday = $day['day'];
+
+			/**
+			 * Event to get a link to the calendar view page (if available)
+			 *
+			 * @event
+			 * @var int		jd
+			 * @var int 	year
+			 * @var int 	month
+			 * @var int		monthday
+			 * @var string	link
+			 * start_jd, end_jd, topic_id, forum_id, topic_title
+			 */
+			$vars = ['jd', 'year', 'month', 'monthday', 'link'];
+			extract($this->dispatcher->trigger_event('marttiphpbb.calendar.view_link', compact($vars)));
 
 			if ($day['dayname'] === 'Monday' || $first_day)
 			{
@@ -183,6 +201,7 @@ class render
 					'month_name'	=> $month_name,
 					'month'			=> $day['month'],
 					'year'			=> $day['year'],
+					'link'			=> $link,
 				];
 			}
 
@@ -211,11 +230,11 @@ class render
 				'month_name'		=> $month_name,
 				'month_abbrev'		=> $month_abbrev,
 				'year'				=> $day['year'],
-				'yearday'			=> $year_begin_jd - $jd + 1,
 				'isoweek'			=> $isoweek,
 				'moon_title'		=> $moon_title,
 				'moon_icon'			=> $moon_icon,
 				'col'				=> $col,
+				'link'				=> $link,
 			];
 
 			$col++;

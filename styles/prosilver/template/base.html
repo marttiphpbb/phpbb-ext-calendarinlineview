@@ -6,7 +6,13 @@
 				<div class="day-info{%- block day_info_class -%}{%- endblock -%}">
 					{%- block day_info_monthday -%}
 					<div class="monthday">
-						{{- d.monthday -}}
+						{%- if d.link -%}
+							<a href="{{- d.link -}}">
+								{{- d.monthday -}}
+							</a>
+						{%- else -%}
+							{{- d.monthday -}}
+						{%- endif -%}
 					</div>
 					{%- endblock day_info_monthday -%}
 					{%- block day_info_weekday -%}
