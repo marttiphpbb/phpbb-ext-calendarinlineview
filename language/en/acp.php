@@ -33,10 +33,7 @@ $lang = array_merge($lang, [
 	=> 'Display the moon phase',
 
 	'ACP_MARTTIPHPBB_CALENDARINLINEVIEW_DAYS_NUM'
-	=> 'Number of days',
-	'ACP_MARTTIPHPBB_CALENDARINLINEVIEW_DAYS_NUM_EXPLAIN'
-	=> 'Although this extension is called Calendar Inline View
-	it is possible to set another period length than 7 days.',
+	=> 'Number of days displayed',
 
 	'ACP_MARTTIPHPBB_CALENDARINLINEVIEW_TIME_FORMAT'
 	=> 'Time format',
@@ -57,15 +54,6 @@ $lang = array_merge($lang, [
 	=> 'Minimum event rows',
 	'ACP_MARTTIPHPBB_CALENDARINLINEVIEW_MAX_ROWS'
 	=> 'Maximum event rows',
-
-	'ACP_MARTTIPHPBB_CALENDARINLINEVIEW_HEIGHT_CONTAINER'
-	=> 'Height of the container',
-	'ACP_MARTTIPHPBB_CALENDARINLINEVIEW_HEIGHT_OFFSET'
-	=> 'Height offset (em * 10)',
-	'ACP_MARTTIPHPBB_CALENDARINLINEVIEW_HEIGHT_OFFSET_EXPLAIN'
-	=> 'For week container header and footer',
-	'ACP_MARTTIPHPBB_CALENDARINLINEVIEW_HEIGHT_EVENT_ROW'
-	=> 'Height of one event row (em * 10)',
 
 	'ACP_MARTTIPHPBB_CALENDARINLINEVIEW_STYLESHEET'
 	=> 'Stylesheet',

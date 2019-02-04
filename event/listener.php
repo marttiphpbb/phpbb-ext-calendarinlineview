@@ -115,7 +115,15 @@ class listener implements EventSubscriberInterface
 		if (isset($template_events[cnst::FOLDER]['index']))
 		{
 			$blocks[cnst::FOLDER]['index'] = [
-				'include'	=> cnst::TPL . 'moon_top.html',
+				'include'	=> cnst::TPL . 'medium_info_top.html',
+				'var'		=> $this->var,
+			];
+		}
+
+		if (isset($template_events[cnst::FOLDER]['index_months']))
+		{
+			$blocks[cnst::FOLDER]['index_months'] = [
+				'include'	=> cnst::TPL . 'months.html',
 				'var'		=> $this->var,
 			];
 		}

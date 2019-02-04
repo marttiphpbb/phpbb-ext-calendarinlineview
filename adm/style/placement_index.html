@@ -11,5 +11,11 @@
 				{{- lang('ACP_MARTTIPHPBB_CALENDARINLINEVIEW_PLACEMENT_INDEX') -}}
 			{%- endblock -%}
 		{%- endembed -%}
+
+		{%- embed '@marttiphpbb_overallpageblocks/dl.html' with {'name': 'index_months'} -%}
+			{%- block label -%}
+				{{- lang('ACP_MARTTIPHPBB_CALENDARINLINEVIEW_PLACEMENT_INDEX_MONTHS') -}}
+			{%- endblock -%}
+		{%- endembed -%}
 	</fieldset>
 {%- endblock form_content -%}

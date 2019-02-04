@@ -1,0 +1,13 @@
+<div class="marttiphpbb-calendarinlineview">
+	<div class="eventrows">
+		<div class="evrow">
+		{%- for m in var.months -%}
+			<div class="month{% if m.month % 2 == 0 %} even-month{% endif %} flex-{{- m.flex -}}">
+				{%- if m.flex > 2 -%}
+					{{- m.month_name -}}
+				{%- endif -%}
+			</div>
+		{%- endfor -%}
+		</div>
+	</div>
+</div>

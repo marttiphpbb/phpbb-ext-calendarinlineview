@@ -68,7 +68,7 @@ class render
 
 		$days_num = $this->store->get_days_num();
 
-		$start_jd = $this->user_today->get_jd();
+		$start_jd = $this->user_today->get_jd() - 10;
 		$end_jd = $start_jd + $days_num - 1;
 
 		if ($this->store->get_show_moon_phase())
@@ -187,7 +187,7 @@ class render
 				$days_in_month = cal_days_in_month(CAL_GREGORIAN, $day['month'], $day['year']);
 
 				$this->var['months'][] = [
-					'flex'			=> min($days_num, $days_in_month - $day['day'] + 1),
+					'flex'			=> min($days_num - $col, $days_in_month - $day['day'] + 1),
 					'month_abbrev'	=> $month_abbrev,
 					'month_name'	=> $month_name,
 					'month'			=> $day['month'],

@@ -51,6 +51,7 @@ class main_module
 					}
 
 					$overallpageblocks_acp->process_form(cnst::FOLDER, 'index');
+					$overallpageblocks_acp->process_form(cnst::FOLDER, 'index_months');
 
 					trigger_error($language->lang(cnst::L_ACP . '_SETTINGS_SAVED') . adm_back_link($this->u_action));
 				}
