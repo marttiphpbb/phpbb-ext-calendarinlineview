@@ -52,31 +52,24 @@ class listener implements EventSubscriberInterface
 	public function core_index_modify_page_title(event $event):void
 	{
 		$this->page = 'index';
-		error_log('Index');
 	}
 
 	public function core_viewforum_modify_page_title(event $event):void
 	{
 		$this->forum_id = $event['forum_id'];
 		$this->page = 'viewforum';
-
-		error_log('Viewforum, forum id: ' . $forum_id);
 	}
 
 	public function core_viewtopic_modify_page_title(event $event):void
 	{
 		$this->forum_id = $event['forum_id'];
 		$this->page = 'viewtopic';
-
-		error_log('Viewtopic, forum id: ' . $forum_id);
 	}
 
 	public function core_posting_modify_template_vars(event $event):void
 	{
 		$this->forum_id = $event['forum_id'];
 		$this->page = 'posting';
-
-		error_log('Posting, forum id: ' . $forum_id);
 	}
 
 	public function add_blocks(event $event):void
@@ -145,8 +138,6 @@ class listener implements EventSubscriberInterface
 		{
 			return;
 		}
-
-		error_log(json_encode($this->var['render']));
 
 		$context = $event['context'];
 		$context['marttiphpbb_calendarinlineview'] = $this->var['render'];

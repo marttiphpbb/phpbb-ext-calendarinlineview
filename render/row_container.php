@@ -39,17 +39,12 @@ class row_container
 
 	public function add_calendar_event(calendar_event $calendar_event):void
 	{
-		error_log('add event');
-
 		for($row_index = 0; $row_index < $this->max_rows; $row_index++)
 		{
 			$row = $this->get_row($row_index);
 
-			error_log('search row index: ' . $row_index);
-
 			if (!is_null($free_segment_index = $row->get_free_segment_index($calendar_event)))
 			{
-				error_log('free_segment: ' . $free_segment_index);
 				$row->insert($free_segment_index, $calendar_event);
 				return;
 			}

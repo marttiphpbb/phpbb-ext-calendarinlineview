@@ -98,8 +98,6 @@ class render
 
 		$row_container = new row_container($this->store->get_min_rows(), $this->store->get_max_rows());
 
-		error_log(json_encode($events));
-
 		foreach($events as $event)
 		{
 			$topic = new topic($event['topic_id'], $event['forum_id'], $event['topic_title']);
@@ -118,14 +116,10 @@ class render
 
 		$week_dayspan = new dayspan($start_jd, $end_jd);
 
-		error_log(json_encode($rows));
-
 		foreach($rows as $row)
 		{
 			$row_ary = [];
 			$segments = $row->get_segments($week_dayspan);
-
-			error_log('row segments: ' . json_encode($segments));
 
 			foreach($segments as $segment)
 			{
@@ -133,7 +127,6 @@ class render
 
 				if ($segment instanceof calendar_event)
 				{
-					error_log('calendar');
 					$topic = $segment->get_topic();
 
 					$params = [
@@ -165,8 +158,6 @@ class render
 
 			$this->var['eventrows'][] = $row_ary;
 		}
-
-		error_log('eventrows: ' . json_encode($this->var['eventrows']));
 
 		for ($jd = $start_jd; $jd <= $end_jd; $jd++)
 		{
