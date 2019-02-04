@@ -177,7 +177,6 @@ class render
 			 * @var int 	month
 			 * @var int		monthday
 			 * @var string	link
-			 * start_jd, end_jd, topic_id, forum_id, topic_title
 			 */
 			$vars = ['jd', 'year', 'month', 'monthday', 'link'];
 			extract($this->dispatcher->trigger_event('marttiphpbb.calendar.view_link', compact($vars)));

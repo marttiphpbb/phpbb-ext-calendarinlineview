@@ -29,7 +29,7 @@ class row_container
 
 	private function get_row(int $row_index):calendar_event_row
 	{
-		if (!$this->rows[$row_index])
+		if (!isset($this->rows[$row_index]))
 		{
 			$this->rows[$row_index] = new calendar_event_row();
 		}

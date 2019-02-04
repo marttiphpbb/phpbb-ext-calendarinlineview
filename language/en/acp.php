@@ -19,6 +19,10 @@ if (empty($lang) || !is_array($lang))
 }
 
 $lang = array_merge($lang, [
+	'ACP_MARTTIPHPBB_CALENDARINLINEVIEW_PLACEMENT_DAYS'
+		=> 'Days and Events',
+	'ACP_MARTTIPHPBB_CALENDARINLINEVIEW_PLACEMENT_MONTHS'
+		=> 'Months',
 
 	'ACP_MARTTIPHPBB_CALENDARINLINEVIEW_SETTINGS_SAVED'
 	=> 'The settings have been saved successfully!',

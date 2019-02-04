@@ -191,6 +191,7 @@ div.marttiphpbb-calendarinlineview div.eventrows div.evrow
 	display: flex;
 	justify-content: space-evenly;
 	z-index: 1;
+	height: 2.3em;
 }
 
 div.marttiphpbb-calendarinlineview div.eventrows div.evrow div.f-con
