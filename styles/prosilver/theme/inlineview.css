@@ -164,29 +164,30 @@ div.marttiphpbb-calendarinlineview div.eventrows
 {
 	display: flex;
 	flex-direction: column;
+	margin: .3em 0;
 }
 
-div.marttiphpbb-calendarinlineview div.eventrows div.evrow-info-big
+div.marttiphpbb-calendarinlineview div.evrow-info-big
 {
 	height: 3em;
 }
 
-div.marttiphpbb-calendarinlineview div.eventrows div.evrow-info-mid
+div.marttiphpbb-calendarinlineview div.evrow-info-mid
 {
 	height: 2em;
 }
 
-div.marttiphpbb-calendarinlineview div.eventrows div.evrow-info-small
+div.marttiphpbb-calendarinlineview div.evrow-info-small
 {
 	height: 1.7em;
 }
 
-div.marttiphpbb-calendarinlineview div.eventrows div.evrow-fill
+div.marttiphpbb-calendarinlineview div.evrow-fill
 {
 	height: .7em;
 }
 
-div.marttiphpbb-calendarinlineview div.eventrows div.evrow
+div.marttiphpbb-calendarinlineview div.evrow
 {
 	display: flex;
 	justify-content: space-evenly;
@@ -194,12 +195,12 @@ div.marttiphpbb-calendarinlineview div.eventrows div.evrow
 	height: 2.3em;
 }
 
-div.marttiphpbb-calendarinlineview div.eventrows div.evrow div.f-con
+div.marttiphpbb-calendarinlineview div.f-con
 {
 	min-width: 0;
 }
 
-div.marttiphpbb-calendarinlineview div.eventrows div.evrow div.f-con div.ev
+div.marttiphpbb-calendarinlineview div.f-con div.ev
 {
 	margin: .15em;
 	background: rgb(238, 246, 255);
@@ -209,36 +210,36 @@ div.marttiphpbb-calendarinlineview div.eventrows div.evrow div.f-con div.ev
 	min-width: 0;
 }
 
-div.marttiphpbb-calendarinlineview div.eventrows div.evrow:nth-child(even) div.f-con div.ev
+div.marttiphpbb-calendarinlineview div.evrow:nth-child(even) div.f-con div.ev
 {
 	background: rgb(220, 235, 255);
 }
 
-div.marttiphpbb-calendarinlineview div.eventrows div.evrow div.ev.ev-start div.ev-overlay
+div.marttiphpbb-calendarinlineview div.ev.ev-start div.ev-overlay
 {
 	border-top-left-radius: .5em;
 	border-bottom-left-radius: .5em;
 }
 
-div.marttiphpbb-calendarinlineview div.eventrows div.evrow div.ev.ev-end div.ev-overlay
+div.marttiphpbb-calendarinlineview div.ev.ev-end div.ev-overlay
 {
 	border-top-right-radius: .5em;
 	border-bottom-right-radius: .5em;
 }
 
-div.marttiphpbb-calendarinlineview div.eventrows div.evrow div.ev div.ev-overlay
+div.marttiphpbb-calendarinlineview div.ev div.ev-overlay
 {
 	width: 100%;
 	height: 100%;
 }
 
-div.marttiphpbb-calendarinlineview div.eventrows div.evrow div.ev div.ev-overlay:hover,
-div.marttiphpbb-calendarinlineview div.eventrows div.evrow div.ev div.ev-overlay.hover
+div.marttiphpbb-calendarinlineview div.ev div.ev-overlay:hover,
+div.marttiphpbb-calendarinlineview div.ev div.ev-overlay.hover
 {
 	background: rgba(255, 255, 255, 0.5);
 }
 
-div.marttiphpbb-calendarinlineview div.eventrows div.evrow div.ev a
+div.marttiphpbb-calendarinlineview div.ev a
 {
 	display:inline-block;
 	width: 100%;
@@ -253,13 +254,13 @@ div.marttiphpbb-calendarinlineview div.eventrows div.evrow div.ev a
 	min-width: 0;
 }
 
-div.marttiphpbb-calendarinlineview div.eventrows div.evrow div.f-con div.ev.ev-start
+div.marttiphpbb-calendarinlineview div.f-con div.ev.ev-start
 {
 	border-top-left-radius: .5em;
 	border-bottom-left-radius: .5em;
 	border-left-style: solid;
 }
-div.marttiphpbb-calendarinlineview div.eventrows div.evrow div.f-con div.ev.ev-end
+div.marttiphpbb-calendarinlineview div.f-con div.ev.ev-end
 {
 	border-top-right-radius: .5em;
 	border-bottom-right-radius: .5em;
@@ -330,17 +331,31 @@ div.marttiphpbb-calendarinlineview div.flex-16
 {
 	flex: 16;
 }
+div.marttiphpbb-calendarinlineview div.monthrow
+{
+	display: flex;
+	justify-content: space-evenly;
+	z-index: 1;
+	height: 1.8em;
+	margin: .3em 0;
+}
 div.marttiphpbb-calendarinlineview div.month
 {
-	height: 1.5em;
+	height: 100%;
+	line-height: 1.8em;
 	text-align: center;
 	border-radius: .6em;
 	background: #d7d7d7;
 	color: #444;
-	margin: .15em;
+	margin: 0 .15em;
 }
 div.marttiphpbb-calendarinlineview div.month.even-month
 {
 	color: rgb(12, 56, 133);
 	background: rgb(202, 220, 235);
+}
+div.marttiphpbb-calendarinlineview div.month span
+{
+	display: inline-block;
+	vertical-align: middle;
 }
