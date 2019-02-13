@@ -244,7 +244,6 @@ class render
 			'show_moon_phase'	=> $this->store->get_show_moon_phase(),
 			'load_stylesheet'	=> $this->store->get_load_stylesheet(),
 			'extra_stylesheet'	=> $this->store->get_extra_stylesheet(),
-			'event_row_count'	=> count($rows),
 		];
 
 		return $this->var;

@@ -20,11 +20,9 @@
 						{{- d.weekday_abbrev -}}
 					</div>
 					{%- endblock day_info_weekday -%}
-					{%- if var.render.show_moon_phase and d.moon_icon -%}
-						{% include '@marttiphpbb_calendarinlineview/include/moon_phase.html' -%}
-					{%- elseif d.weekday == 1 and var.render.show_isoweek -%}
-						{%- include '@marttiphpbb_calendarinlineview/include/isoweek.html' -%}
-					{%- endif -%}
+					{%- block day_info_moon_iso -%}
+						{%- include '@marttiphpbb_calendarinlineview/include/moon_iso.html' -%}
+					{%- endblock day_info_moon_iso -%}
 				</div>
 				{%- endblock day_info -%}
 			</div>

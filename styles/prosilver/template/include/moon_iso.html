@@ -1,0 +1,5 @@
+{%- if var.render.show_moon_phase and d.moon_icon -%}
+    {% include '@marttiphpbb_calendarinlineview/include/moon_phase.html' -%}
+{%- elseif d.weekday == 1 and var.render.show_isoweek -%}
+    {%- include '@marttiphpbb_calendarinlineview/include/isoweek.html' -%}
+{%- endif -%}
