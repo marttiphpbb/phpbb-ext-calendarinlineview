@@ -3,8 +3,8 @@
 	"type": "phpbb-extension",
 	"description": "Calendar Inline View Extension for phpBB 3.2",
 	"homepage": "https://github.com/marttiphpbb/phpbb-ext-calendarinlineview",
-	"version": "0.1.0",
-	"time": "2019-01-18",
+	"version": "0.2.0",
+	"time": "2019-02-13",
 	"keywords": ["phpbb", "extension", "calendar", "inline", "view"],
 	"license": "GPL-2.0",
 	"authors": [{
