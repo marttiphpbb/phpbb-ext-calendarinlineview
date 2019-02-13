@@ -2,15 +2,13 @@
 
 [Topic on phpbb.com](https://www.phpbb.com/community/viewtopic.php?f=456&t=)
 
-## Do not install yet! Early Stage!
-
 ## Description
 
 This phpBB extension provides a Calendar Inline View for the [Calendar extension set](https://github.com/marttiphpbb/phpbb-ext-calendarmono/blob/master/doc/calendar-set.md)
 
 ## Screenshot
 
-Not yet
+![Index](doc/index.png)
 
 ## Requirements
 
@@ -43,6 +41,10 @@ You can install this on the latest release of phpBB 3.2 by following the steps b
 
 [GPL-2.0](license.txt)
 
-## More Screenshots
+## More Screenshots (ACP)
 
-not yet here.
+![Index](doc/acp_index.png)
+
+![Index](doc/acp_forums.png)
+
+![Index](doc/acp_rendering.png)
