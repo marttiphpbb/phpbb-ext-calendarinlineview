@@ -166,7 +166,7 @@ class listener implements EventSubscriberInterface
 		if (isset($template_events[cnst::FOLDER][$days_key]))
 		{
 			$blocks[cnst::FOLDER][$days_key] = [
-				'include'	=> cnst::TPL . $days_template . '.html',
+				'include'	=> cnst::TPL . 'days/' . $days_template . '.html',
 				'var'		=> $this->var,
 			];
 		}

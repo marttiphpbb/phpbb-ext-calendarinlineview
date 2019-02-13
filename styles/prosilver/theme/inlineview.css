@@ -39,11 +39,6 @@ div.marttiphpbb-calendarinlineview div.day div.day-info.small
 	padding: .2em .8em;
 }
 
-div.marttiphpbb-calendarinlineview div.day div.day-info.mid
-{
-	padding: .3em .8em;
-}
-
 div.marttiphpbb-calendarinlineview div.day-info div.monthday
 {
 	float: left;
@@ -54,14 +49,9 @@ div.marttiphpbb-calendarinlineview div.day-info-small div.monthday
 	font-size: 1.1em;
 }
 
-div.marttiphpbb-calendarinlineview div.day-info-mid div.monthday
+div.marttiphpbb-calendarinlineview div.day-info-large div.monthday
 {
-	font-size: 1.4em;
-}
-
-div.marttiphpbb-calendarinlineview div.day-info-big div.monthday
-{
-	font-size: 1.8em;
+	font-size: 1.3em;
 }
 
 div.marttiphpbb-calendarinlineview div.day-info div.weekday
@@ -74,13 +64,9 @@ div.marttiphpbb-calendarinlineview div.day-info-small div.weekday
 {
 	font-size: .8em;
 }
-div.marttiphpbb-calendarinlineview div.day-info-medium div.weekday
+div.marttiphpbb-calendarinlineview div.day-info-large div.weekday
 {
-	font-size: .9em;
-}
-div.marttiphpbb-calendarinlineview div.day-info-big div.weekday
-{
-	font-size: 1.1em;
+	font-size: 1em;
 }
 
 div.marttiphpbb-calendarinlineview div.day-info div.moon
@@ -95,14 +81,9 @@ div.marttiphpbb-calendarinlineview div.day-info-small div.moon
 	font-size: .8em;
 }
 
-div.marttiphpbb-calendarinlineview div.day-info-mid div.moon
+div.marttiphpbb-calendarinlineview div.day-info-large div.moon
 {
-	font-size: 1em;
-}
-
-div.marttiphpbb-calendarinlineview div.day-info-big div.moon
-{
-	font-size: 1.3em;
+	font-size: 1.1em;
 }
 
 div.marttiphpbb-calendarinlineview div.day-info div.moon span
@@ -123,12 +104,7 @@ div.marttiphpbb-calendarinlineview div.day-info-small div.isoweek
 	font-size: 0.7em;
 }
 
-div.marttiphpbb-calendarinlineview div.day-info-mid div.isoweek
-{
-	font-size: 0.8em;
-}
-
-div.marttiphpbb-calendarinlineview div.day-info-big div.isoweek
+div.marttiphpbb-calendarinlineview div.day-info-large div.isoweek
 {
 	font-size: .9em;
 }
@@ -167,19 +143,14 @@ div.marttiphpbb-calendarinlineview div.eventrows
 	margin: .3em 0;
 }
 
-div.marttiphpbb-calendarinlineview div.evrow-info-big
+div.marttiphpbb-calendarinlineview div.evrow-info-large
 {
-	height: 3em;
-}
-
-div.marttiphpbb-calendarinlineview div.evrow-info-mid
-{
-	height: 2em;
+	height: 2.2em;
 }
 
 div.marttiphpbb-calendarinlineview div.evrow-info-small
 {
-	height: 1.7em;
+	height: 1.9em;
 }
 
 div.marttiphpbb-calendarinlineview div.evrow-fill

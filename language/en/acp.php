@@ -51,7 +51,7 @@ $lang = array_merge($lang, [
 	'ACP_MARTTIPHPBB_CALENDARINLINEVIEW_FORUMS_LOCAL_EVENTS'
 	=> 'Show only events of the current forum',
 	'ACP_MARTTIPHPBB_CALENDARINLINEVIEW_TEMPLATE'
-	=> 'Template',
+	=> 'Template (day info)',
 
 	'ACP_MARTTIPHPBB_CALENDARINLINEVIEW_TIME_FORMAT'
 	=> 'Time format',

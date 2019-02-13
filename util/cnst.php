@@ -38,14 +38,14 @@ class cnst
 			'days_num' 	=> 10,
 			'min_rows' 	=> 2,
 			'max_rows' 	=> 30,
-			'template' 	=> 'small_info_bottom',
+			'template' 	=> 'abbrev_moon_lg_bottom',
 		],
 		'forums' => [
 			'local_events' 	=> true,
 			'days_num' 		=> 10,
 			'min_rows' 		=> 2,
 			'max_rows' 		=> 30,
-			'template' 		=> 'small_info_bottom',
+			'template' 		=> 'abbrev_moon_lg_bottom',
 			'en_ary'	=> [
 				'viewforum'	=> [],
 				'viewtopic'	=> [],
@@ -60,7 +60,27 @@ class cnst
 
 	const TEMPLATES = [
 		'clean',
-		'bottom_sm_moon',
-		'top_sm_moon',
+		'moon_sm_bottom',
+		'moon_sm_top',
+
+		'day_sm_bottom',
+		'day_sm_top',
+		'day_moon_sm_bottom',
+		'day_moon_sm_top',
+
+		'abbrev_moon_sm_bottom',
+		'abbrev_moon_sm_top',
+		'abbrev_sm_bottom',
+		'abbrev_sm_top',
+
+		'abbrev_lg_bottom',
+		'abbrev_lg_top',
+		'abbrev_moon_lg_bottom',
+		'abbrev_moon_lg_top',
+
+		'full_lg_bottom',
+		'full_lg_top',
+		'full_moon_lg_bottom',
+		'full_moon_lg_top',
 	];
 }

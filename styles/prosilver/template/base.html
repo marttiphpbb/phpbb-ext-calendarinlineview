@@ -17,7 +17,9 @@
 					{%- endblock day_info_monthday -%}
 					{%- block day_info_weekday -%}
 					<div class="weekday">
+						{%- block day_info_weekday_text -%}
 						{{- d.weekday_abbrev -}}
+						{%- endblock day_info_weekday_text -%}
 					</div>
 					{%- endblock day_info_weekday -%}
 					{%- block day_info_moon_iso -%}
