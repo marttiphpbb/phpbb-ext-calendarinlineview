@@ -32,7 +32,8 @@ class mgr_1 extends \phpbb\db\migration\migration
 				[
 					'module_basename'	=> '\marttiphpbb\calendarinlineview\acp\main_module',
 					'modes'				=> [
-						'placement_index',
+						'index',
+						'forums',
 						'rendering',
 					],
 				],

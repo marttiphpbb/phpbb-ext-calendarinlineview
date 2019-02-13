@@ -103,6 +103,30 @@ class store
 		return $this->get_all()[$name];
 	}
 
+	private function set_index_string(string $name, string $value):void
+	{
+		$ary = $this->get_all();
+		$ary['index'][$name] = $value;
+		$this->set($ary);
+	}
+
+	private function get_index_string(string $name):string
+	{
+		return $this->get_all()['index'][$name];
+	}
+
+	private function set_forums_string(string $name, string $value):void
+	{
+		$ary = $this->get_all();
+		$ary['forums'][$name] = $value;
+		$this->set($ary);
+	}
+
+	private function get_forums_string(string $name):string
+	{
+		return $this->get_all()['forums'][$name];
+	}
+
 	private function set_int(string $name, int $value):void
 	{
 		$ary = $this->get_all();
@@ -113,6 +137,30 @@ class store
 	private function get_int(string $name):int
 	{
 		return $this->get_all()[$name];
+	}
+
+	private function set_index_int(string $name, int $value):void
+	{
+		$ary = $this->get_all();
+		$ary['index'][$name] = $value;
+		$this->set($ary);
+	}
+
+	private function get_index_int(string $name):int
+	{
+		return $this->get_all()['index'][$name];
+	}
+
+	private function set_forums_int(string $name, int $value):void
+	{
+		$ary = $this->get_all();
+		$ary['forums'][$name] = $value;
+		$this->set($ary);
+	}
+
+	private function get_forums_int(string $name):int
+	{
+		return $this->get_all()['forums'][$name];
 	}
 
 	private function set_boolean(string $name, bool $value):void
@@ -127,54 +175,106 @@ class store
 		return $this->get_all()[$name];
 	}
 
-	public function set_show_isoweek(bool $show_isoweek):void
+	private function set_forums_boolean(string $name, bool $value):void
 	{
-		$this->set_boolean('show_isoweek', $show_isoweek);
+		$ary = $this->get_all();
+		$ary['forums'][$name] = $value;
+		$this->set($ary);
 	}
 
-	public function get_show_isoweek():bool
+	private function get_forums_boolean(string $name):bool
 	{
-		return $this->get_boolean('show_isoweek');
+		return $this->get_all()['forums'][$name];
 	}
 
-	public function set_show_moon_phase(bool $show_moon_phase):void
+	public function set_index_days_num(int $days_num):void
 	{
-		$this->set_boolean('show_moon_phase', $show_moon_phase);
+		$this->set_index_int('days_num', $days_num);
 	}
 
-	public function get_show_moon_phase():bool
+	public function get_index_days_num():int
 	{
-		return $this->get_boolean('show_moon_phase');
+		return $this->get_index_int('days_num');
 	}
 
-	public function get_days_num():int
+	public function set_forums_days_num(int $days_num):void
 	{
-		return $this->get_int('days_num');
+		$this->set_forums_int('days_num', $days_num);
 	}
 
-	public function set_days_num(int $days_num):void
+	public function get_forums_days_num():int
 	{
-		$this->set_int('days_num', $days_num);
+		return $this->get_forums_int('days_num');
 	}
 
-	public function set_min_rows(int $min_rows):void
+	public function set_index_min_rows(int $min_rows):void
 	{
-		$this->set_int('min_rows', $min_rows);
+		$this->set_index_int('min_rows', $min_rows);
 	}
 
-	public function get_min_rows():int
+	public function get_index_min_rows():int
 	{
-		return $this->get_int('min_rows');
+		return $this->get_index_int('min_rows');
 	}
 
-	public function set_max_rows(int $max_rows):void
+	public function set_forums_min_rows(int $min_rows):void
 	{
-		$this->set_int('max_rows', $max_rows);
+		$this->set_forums_int('min_rows', $min_rows);
 	}
 
-	public function get_max_rows():int
+	public function get_forums_min_rows():int
 	{
-		return $this->get_int('max_rows');
+		return $this->get_forums_int('min_rows');
+	}
+
+	public function set_index_max_rows(int $max_rows):void
+	{
+		$this->set_index_int('max_rows', $max_rows);
+	}
+
+	public function get_index_max_rows():int
+	{
+		return $this->get_index_int('max_rows');
+	}
+
+	public function set_forums_max_rows(int $max_rows):void
+	{
+		$this->set_forums_int('max_rows', $max_rows);
+	}
+
+	public function get_forums_max_rows():int
+	{
+		return $this->get_forums_int('max_rows');
+	}
+
+	public function set_index_template(string $template):void
+	{
+		$this->set_index_string('template', $template);
+	}
+
+	public function get_index_template():string
+	{
+		return $this->get_index_string('template');
+	}
+
+	public function set_forums_template(string $template):void
+	{
+		$this->set_forums_string('template', $template);
+	}
+
+	public function get_forums_template():string
+	{
+		return $this->get_forums_string('template');
+	}
+
+	public function set_forums_only_events(bool $only_events):void
+	{
+		$this->set_forums_boolean('only_events', $only_events);
+	}
+
+	public function get_forums_only_events():bool
+	{
+		return $this->get_forums_boolean('only_events');
 	}
 
 	public function set_load_stylesheet(bool $load_stylesheet):void

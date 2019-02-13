@@ -33,15 +33,26 @@ class cnst
 		3	=> 'THIRD_QUARTER_MOON',
 	];
 
-	static public function prefix_keys(string $prefix, array $lang_ary):array
-	{
-		$ary = [];
-
-		foreach($lang_ary as $key => $value)
-		{
-			$ary[$prefix . $key] = $value;
-		}
-
-		return $ary;
-	}
+	const DEFAULT_SETTINGS = [
+		'index' => [
+			'days_num' 	=> 10,
+			'min_rows' 	=> 2,
+			'max_rows' 	=> 30,
+			'template' 	=> 'small_info_bottom',
+		],
+		'forums' => [
+			'local_events' 	=> true,
+			'days_num' 		=> 10,
+			'min_rows' 		=> 2,
+			'max_rows' 		=> 30,
+			'template' 		=> 'small_info_bottom',
+			'viewforum_ids_en' 	=> [],
+			'viewtopic_ids_en' 	=> [],
+			'posting_ids_en' 	=> [],
+		],
+		'load_stylesheet' 			=> true,
+		'extra_stylesheet' 			=> '',
+		'derive_user_time_format' 	=> true,
+		'default_time_format' 		=> 'H:i',
+	];
 }

@@ -17,8 +17,13 @@ class main_info
 			'filename'	=> '\marttiphpbb\calendarinlineview\acp\main_module',
 			'title'		=> cnst::L_ACP,
 			'modes'		=> [
-				'placement_index'	=> [
-					'title' => cnst::L_ACP . '_PLACEMENT_INDEX',
+				'index'	=> [
+					'title' => cnst::L_ACP . '_INDEX',
+					'auth' => 'ext_marttiphpbb/calendarinlineview && acl_a_board',
+					'cat' => [cnst::L_ACP],
+				],
+				'forums'	=> [
+					'title' => cnst::L_ACP . '_FORUMS',
 					'auth' => 'ext_marttiphpbb/calendarinlineview && acl_a_board',
 					'cat' => [cnst::L_ACP],
 				],
