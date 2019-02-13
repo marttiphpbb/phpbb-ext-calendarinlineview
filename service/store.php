@@ -194,6 +194,7 @@ class store
 			return;
 		}
 
+		$ary = $this->get_all();
 		$ary['forums']['en_ary'][$name][$key] = $val;
 		$this->set($ary);
 	}
@@ -323,14 +324,14 @@ class store
 		return $this->get_forums_string('template');
 	}
 
-	public function set_forums_only_events(bool $only_events):void
+	public function set_forums_local_events(bool $local_events):void
 	{
-		$this->set_forums_boolean('only_events', $only_events);
+		$this->set_forums_boolean('local_events', $local_events);
 	}
 
-	public function get_forums_only_events():bool
+	public function get_forums_local_events():bool
 	{
-		return $this->get_forums_boolean('only_events');
+		return $this->get_forums_boolean('local_events');
 	}
 
 	public function set_load_stylesheet(bool $load_stylesheet):void

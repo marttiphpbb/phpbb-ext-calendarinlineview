@@ -64,10 +64,10 @@ class main_module
 				}
 
 				$template->assign_vars([
-					'INDEX_DAYS_NUM'	=> $store->get_index_days_num(),
-					'INDEX_MIN_ROWS'	=> $store->get_index_min_rows(),
-					'INDEX_MAX_ROWS'	=> $store->get_index_max_rows(),
-					'INDEX_TEMPLATE'	=> $store->get_index_template(),
+					'DAYS_NUM'	=> $store->get_index_days_num(),
+					'MIN_ROWS'	=> $store->get_index_min_rows(),
+					'MAX_ROWS'	=> $store->get_index_max_rows(),
+					'TEMPLATE'	=> $store->get_index_template(),
 				]);
 
 			break;
@@ -83,29 +83,33 @@ class main_module
 						trigger_error('FORM_INVALID');
 					}
 
+					$viewforum_en_ary =  array_fill_keys(array_keys($request->variable('viewforum_en', [0 => ''])), true);
+					$viewtopic_en_ary =  array_fill_keys(array_keys($request->variable('viewtopic_en', [0 => ''])), true);
+					$posting_en_ary =  array_fill_keys(array_keys($request->variable('posting_en', [0 => ''])), true);
+
 					$store->transaction_start();
-					$store->set_forums_only_events($request->variable('forums_only_events', 0) ? true : false);
+					$store->set_forums_local_events($request->variable('forums_local_events', 0) ? true : false);
 					$store->set_forums_days_num($request->variable('forums_days_num', 0));
 					$store->set_forums_min_rows($request->variable('forums_min_rows', 0));
 					$store->set_forums_max_rows($request->variable('forums_max_rows', 0));
 					$store->set_forums_template($request->variable('forums_template', ''));
-					$store->set_forums_viewforum_en_ary($request->variable('viewforum_en', ['' => '']));
-					$store->set_forums_viewtopic_en_ary($request->variable('viewtopic_en', ['' => '']));
-					$store->set_forums_posting_en_ary($request->variable('posting_en', ['' => '']));
+					$store->set_forums_viewforum_en_ary($viewforum_en_ary);
+					$store->set_forums_viewtopic_en_ary($viewtopic_en_ary);
+					$store->set_forums_posting_en_ary($posting_en_ary);
 					$store->transaction_end();
 
-					$overallpageblocks_acp->process_form(cnst::FOLDER, 'forum_days');
-					$overallpageblocks_acp->process_form(cnst::FOLDER, 'forum_months');
+					$overallpageblocks_acp->process_form(cnst::FOLDER, 'forums_days');
+					$overallpageblocks_acp->process_form(cnst::FOLDER, 'forums_months');
 
 					trigger_error($language->lang(cnst::L_ACP . '_SETTINGS_SAVED') . adm_back_link($this->u_action));
 				}
 
 				$template->assign_vars([
 					'FORUMS_LOCAL_EVENTS'	=> $store->get_forums_local_events(),
-					'FORUMS_DAYS_NUM'		=> $store->get_forums_days_num(),
-					'FORUMS_MIN_ROWS'		=> $store->get_forums_min_rows(),
-					'FORUMS_MAX_ROWS'		=> $store->get_forums_max_rows(),
-					'FORUMS_TEMPLATE'		=> $store->get_forums_template(),
+					'DAYS_NUM'				=> $store->get_forums_days_num(),
+					'MIN_ROWS'				=> $store->get_forums_min_rows(),
+					'MAX_ROWS'				=> $store->get_forums_max_rows(),
+					'TEMPLATE'				=> $store->get_forums_template(),
 				]);
 
 				$cforums = make_forum_select(false, false, false, false, true, false, true);

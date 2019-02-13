@@ -1,19 +1,64 @@
 {%- extends '@marttiphpbb_calendarinlineview/base.html' -%}
 
 {%- block heading -%}
-	{{- lang('ACP_MARTTIPHPBB_CALENDARINLINEVIEW_PLACEMENT_FORUMS') -}}
+	{{- lang('ACP_MARTTIPHPBB_CALENDARINLINEVIEW_FORUMS') -}}
 {%- endblock -%}
 
 {%- block form_content -%}
 	<fieldset>
-		{%- embed '@marttiphpbb_overallpageblocks/dl.html' with {'name': 'index'} -%}
+		{%- include '@marttiphpbb_calendarinlineview/include/render_params.html' with {'type_setting': 'forums'} -%}
+
+		{%- embed '@marttiphpbb_calendarinlineview/include/radio.html' with {'checked': FORUMS_LOCAL_EVENTS} -%}
 			{%- block label -%}
-				{{- lang('ACP_MARTTIPHPBB_CALENDARINLINEVIEW_PLACEMENT_INDEX') -}}
+				{{- lang('ACP_MARTTIPHPBB_CALENDARINLINEVIEW_FORUMS_LOCAL_EVENTS') -}}
 			{%- endblock -%}
-			{%- block explain -%}
-				<br>
-				{{- lang('ACP_MARTTIPHPBB_CALENDARINLINEVIEW_PLACEMENT_INDEX_EXPLAIN') -}}
+			{%- block name -%}
+				forums_local_events
 			{%- endblock -%}
 		{%- endembed -%}
+
+		{%- include '@marttiphpbb_calendarinlineview/include/template.html' with {'type_setting': 'forums'} -%}
+	</fieldset>
+
+	{%- include '@marttiphpbb_calendarinlineview/include/placement.html' with {'type_setting': 'forums'} -%}
+
+	<fieldset>
+		<legend>
+			{{- lang('MARTTIPHPBB_CALENDARINLINEVIEW_FORUMS_ENABLE') -}}
+		</legend>
+		<table class="table1 zebra-table">
+		<thead>
+		<tr>
+			<th>{{- lang('FORUM') -}}</th>
+			<th>{{- lang('MARTTIPHPBB_CALENDARINLINEVIEW_VIEWFORUM_EN') -}}</th>
+			<th>{{- lang('MARTTIPHPBB_CALENDARINLINEVIEW_VIEWTOPIC_EN') -}}</th>
+			<th>{{- lang('MARTTIPHPBB_CALENDARINLINEVIEW_POSTING_EN') -}}</th>
+		</tr>
+		</thead>
+		<tbody>
+		{%- for cf in cforums -%}
+			<tr>
+				<td>
+					{{- cf.NAME -}}
+				</td>
+				<td>
+					{%- include '@marttiphpbb_calendarinlineview/include/checkbox.html' with {'name': 'viewforum', 'checked': cf.VIEWFORUM_EN} -%}
+				</td>
+				<td>
+					{%- include '@marttiphpbb_calendarinlineview/include/checkbox.html' with {'name': 'viewtopic', 'checked': cf.VIEWTOPIC_EN} -%}
+				</td>
+				<td>
+					{%- include '@marttiphpbb_calendarinlineview/include/checkbox.html' with {'name': 'posting', 'checked': cf.POSTING_EN} -%}
+				</td>
+			</tr>
+		{%- else -%}
+			<tr>
+				<td colspan="4" style="text-align: center;">
+					{{- lang('NO_FORUMS') -}}
+				</td>
+			</tr>
+		{%- endfor -%}
+		</tbody>
+		</table>
 	</fieldset>
 {%- endblock form_content -%}

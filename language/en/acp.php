@@ -19,6 +19,8 @@ if (empty($lang) || !is_array($lang))
 }
 
 $lang = array_merge($lang, [
+	'ACP_MARTTIPHPBB_CALENDARINLINEVIEW_PLACEMENT'
+		=> 'Placement',
 	'ACP_MARTTIPHPBB_CALENDARINLINEVIEW_PLACEMENT_DAYS'
 		=> 'Days and Events',
 	'ACP_MARTTIPHPBB_CALENDARINLINEVIEW_PLACEMENT_MONTHS'
@@ -30,14 +32,26 @@ $lang = array_merge($lang, [
 	=> 'This extension depends on the %1$sOverall Page Blocks extension%2$s to be installed
 	in order to function.',
 
-// page_rendering
-	'ACP_MARTTIPHPBB_CALENDARINLINEVIEW_ISOWEEK'
-	=> 'Display the week number (ISO 1806)',
-	'ACP_MARTTIPHPBB_CALENDARINLINEVIEW_MOON_PHASE'
-	=> 'Display the moon phase',
+//
+	'MARTTIPHPBB_CALENDARINLINEVIEW_FORUMS_ENABLE'
+	=> 'Forums Enable',
+	'MARTTIPHPBB_CALENDARINLINEVIEW_VIEWFORUM_EN'
+	=> 'Viewforum',
+	'MARTTIPHPBB_CALENDARINLINEVIEW_VIEWTOPIC_EN'
+	=> 'Viewtopic',
+	'MARTTIPHPBB_CALENDARINLINEVIEW_POSTING_EN'
+	=> 'Posting',
 
 	'ACP_MARTTIPHPBB_CALENDARINLINEVIEW_DAYS_NUM'
 	=> 'Number of days displayed',
+	'ACP_MARTTIPHPBB_CALENDARINLINEVIEW_MIN_ROWS'
+	=> 'Minimum event rows',
+	'ACP_MARTTIPHPBB_CALENDARINLINEVIEW_MAX_ROWS'
+	=> 'Maximum event rows',
+	'ACP_MARTTIPHPBB_CALENDARINLINEVIEW_FORUMS_LOCAL_EVENTS'
+	=> 'Show only events of the current forum',
+	'ACP_MARTTIPHPBB_CALENDARINLINEVIEW_TEMPLATE'
+	=> 'Template',
 
 	'ACP_MARTTIPHPBB_CALENDARINLINEVIEW_TIME_FORMAT'
 	=> 'Time format',
@@ -51,13 +65,6 @@ $lang = array_merge($lang, [
 	=> 'Default time format',
 	'ACP_MARTTIPHPBB_CALENDARINLINEVIEW_DEFAULT_TIME_FORMAT_EXPLAIN'
 	=> 'See the %1$sPHP date() function%2$s for defining the format.',
-
-	'ACP_MARTTIPHPBB_CALENDARINLINEVIEW_EVENT_ROWS'
-	=> 'Event rows',
-	'ACP_MARTTIPHPBB_CALENDARINLINEVIEW_MIN_ROWS'
-	=> 'Minimum event rows',
-	'ACP_MARTTIPHPBB_CALENDARINLINEVIEW_MAX_ROWS'
-	=> 'Maximum event rows',
 
 	'ACP_MARTTIPHPBB_CALENDARINLINEVIEW_STYLESHEET'
 	=> 'Stylesheet',

@@ -1,0 +1,38 @@
+{%- embed '@marttiphpbb_calendarinlineview/include/number.html' -%}
+{%- block label -%}
+    {{- lang('ACP_MARTTIPHPBB_CALENDARINLINEVIEW_DAYS_NUM') -}}
+{%- endblock -%}
+{%- block name -%}
+    {{- type_setting -}}_days_num
+{%- endblock -%}
+{%- block value -%}
+    {{- DAYS_NUM -}}
+{%- endblock -%}
+{%- block attr %} min="5" max="16"{%- endblock -%}
+{%- endembed -%}
+
+{%- embed '@marttiphpbb_calendarinlineview/include/number.html' -%}
+{%- block label -%}
+    {{- lang('ACP_MARTTIPHPBB_CALENDARINLINEVIEW_MIN_ROWS') -}}
+{%- endblock -%}
+{%- block name -%}
+    {{- type_setting -}}_min_rows
+{%- endblock -%}
+{%- block value -%}
+    {{- MIN_ROWS -}}
+{%- endblock -%}
+{%- block attr %} min="1"{%- endblock -%}
+{%- endembed -%}
+
+{%- embed '@marttiphpbb_calendarinlineview/include/number.html' -%}
+{%- block label -%}
+    {{- lang('ACP_MARTTIPHPBB_CALENDARINLINEVIEW_MAX_ROWS') -}}
+{%- endblock -%}
+{%- block name -%}
+    {{- type_setting -}}_max_rows
+{%- endblock -%}
+{%- block value -%}
+    {{- MAX_ROWS -}}
+{%- endblock -%}
+{%- block attr %} min="1"{%- endblock -%}
+{%- endembed -%}

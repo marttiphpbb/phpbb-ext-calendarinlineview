@@ -1,0 +1,16 @@
+<fieldset>
+    <legend>
+        {{- lang('ACP_MARTTIPHPBB_CALENDARINLINEVIEW_PLACEMENT') -}}
+    </legend>
+    {%- embed '@marttiphpbb_overallpageblocks/dl.html' with {'name': type_setting ~ '_days'} -%}
+        {%- block label -%}
+            {{- lang('ACP_MARTTIPHPBB_CALENDARINLINEVIEW_PLACEMENT_DAYS') -}}
+        {%- endblock -%}
+    {%- endembed -%}
+
+    {%- embed '@marttiphpbb_overallpageblocks/dl.html' with {'name': type_setting ~ '_months'} -%}
+        {%- block label -%}
+            {{- lang('ACP_MARTTIPHPBB_CALENDARINLINEVIEW_PLACEMENT_MONTHS') -}}
+        {%- endblock -%}
+    {%- endembed -%}
+</fieldset>

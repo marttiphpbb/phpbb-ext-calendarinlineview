@@ -1,0 +1,16 @@
+<dl>
+    <dt>
+        <label for="template">
+            {{- lang('ACP_MARTTIPHPBB_CALENDARINLINEVIEW_TEMPLATE') -}}
+        </label>
+    </dt>
+    <dd>
+        <select id="template" name="{{- type_setting -}}_template">
+            {%- for tpl in constant('marttiphpbb\\calendarinlineview\\util\\cnst::TEMPLATES') -%}
+                <option value="{{- tpl -}}"{%- if tpl == TEMPLATE %} selected="selected"{%- endif -%}>
+                    {{- tpl -}}
+                </option>
+            {%- endfor -%}
+        </select>
+    </dd>
+</dl>

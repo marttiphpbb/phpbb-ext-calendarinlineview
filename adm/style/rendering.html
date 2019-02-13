@@ -6,39 +6,6 @@
 
 {%- block form_content -%}
 	<fieldset>
-		{%- embed '@marttiphpbb_calendarinlineview/include/radio.html' with {'checked': SHOW_ISOWEEK} only -%}
-			{%- block label -%}
-				{{- lang('ACP_MARTTIPHPBB_CALENDARINLINEVIEW_ISOWEEK') -}}
-			{%- endblock -%}
-			{%- block name -%}
-				show_isoweek
-			{%- endblock -%}
-		{%- endembed -%}
-
-		{%- embed '@marttiphpbb_calendarinlineview/include/radio.html' with {'checked': SHOW_MOON_PHASE} only -%}
-			{%- block label -%}
-				{{- lang('ACP_MARTTIPHPBB_CALENDARINLINEVIEW_MOON_PHASE') -}}
-			{%- endblock -%}
-			{%- block name -%}
-				show_moon_phase
-			{%- endblock -%}
-		{%- endembed -%}
-
-		{%- embed '@marttiphpbb_calendarinlineview/include/number.html' -%}
-			{%- block label -%}
-				{{- lang('ACP_MARTTIPHPBB_CALENDARINLINEVIEW_DAYS_NUM') -}}
-			{%- endblock -%}
-			{%- block name -%}
-				days_num
-			{%- endblock -%}
-			{%- block value -%}
-				{{- DAYS_NUM -}}
-			{%- endblock -%}
-			{%- block attr %} min="1" max="16"{%- endblock -%}
-		{%- endembed -%}
-	</fieldset>
-
-	<fieldset>
 		<legend>
 			{{- lang('ACP_MARTTIPHPBB_CALENDARINLINEVIEW_TIME_FORMAT') -}}
 		</legend>
@@ -73,38 +40,6 @@
 			{%- block value -%}
 				{{- DEFAULT_TIME_FORMAT -}}
 			{%- endblock -%}
-		{%- endembed -%}
-	</fieldset>
-
-	<fieldset>
-		<legend>
-			{{- lang('ACP_MARTTIPHPBB_CALENDARINLINEVIEW_EVENT_ROWS') -}}
-		</legend>
-
-		{%- embed '@marttiphpbb_calendarinlineview/include/number.html' -%}
-			{%- block label -%}
-				{{- lang('ACP_MARTTIPHPBB_CALENDARINLINEVIEW_MIN_ROWS') -}}
-			{%- endblock -%}
-			{%- block name -%}
-				min_rows
-			{%- endblock -%}
-			{%- block value -%}
-				{{- MIN_ROWS -}}
-			{%- endblock -%}
-			{%- block attr %} min="1"{%- endblock -%}
-		{%- endembed -%}
-
-		{%- embed '@marttiphpbb_calendarinlineview/include/number.html' -%}
-			{%- block label -%}
-				{{- lang('ACP_MARTTIPHPBB_CALENDARINLINEVIEW_MAX_ROWS') -}}
-			{%- endblock -%}
-			{%- block name -%}
-				max_rows
-			{%- endblock -%}
-			{%- block value -%}
-				{{- MAX_ROWS -}}
-			{%- endblock -%}
-			{%- block attr %} min="1"{%- endblock -%}
 		{%- endembed -%}
 	</fieldset>
 

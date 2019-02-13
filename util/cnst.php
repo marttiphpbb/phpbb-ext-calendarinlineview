@@ -57,4 +57,10 @@ class cnst
 		'derive_user_time_format' 	=> true,
 		'default_time_format' 		=> 'H:i',
 	];
+
+	const TEMPLATES = [
+		'clean',
+		'bottom_sm_moon',
+		'top_sm_moon',
+	];
 }
