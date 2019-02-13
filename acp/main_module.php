@@ -89,6 +89,9 @@ class main_module
 					$store->set_forums_min_rows($request->variable('forums_min_rows', 0));
 					$store->set_forums_max_rows($request->variable('forums_max_rows', 0));
 					$store->set_forums_template($request->variable('forums_template', ''));
+					$store->set_forums_viewforum_en_ary($request->variable('viewforum_en', ['' => '']));
+					$store->set_forums_viewtopic_en_ary($request->variable('viewtopic_en', ['' => '']));
+					$store->set_forums_posting_en_ary($request->variable('posting_en', ['' => '']));
 					$store->transaction_end();
 
 					$overallpageblocks_acp->process_form(cnst::FOLDER, 'forum_days');
@@ -104,6 +107,21 @@ class main_module
 					'FORUMS_MAX_ROWS'		=> $store->get_forums_max_rows(),
 					'FORUMS_TEMPLATE'		=> $store->get_forums_template(),
 				]);
+
+				$cforums = make_forum_select(false, false, false, false, true, false, true);
+
+				foreach ($cforums as $forum)
+				{
+					$forum_id = $forum['forum_id'];
+
+					$template->assign_block_vars('cforums', [
+						'NAME'		=> $forum['padding'] . $forum['forum_name'],
+						'ID'		=> $forum_id,
+						'VIEWFORUM_EN'	=> $store->get_forums_viewforum_en($forum_id),
+						'VIEWTOPIC_EN'	=> $store->get_forums_viewtopic_en($forum_id),
+						'POSTING_EN'	=> $store->get_forums_posting_en($forum_id),
+					]);
+				}
 
 			break;
 
@@ -130,13 +148,8 @@ class main_module
 				}
 
 				$template->assign_vars([
-					'SHOW_ISOWEEK'				=> $store->get_show_isoweek(),
-					'SHOW_MOON_PHASE'			=> $store->get_show_moon_phase(),
-					'DAYS_NUM'					=> $store->get_days_num(),
 					'DERIVE_USER_TIME_FORMAT'	=> $store->get_derive_user_time_format(),
 					'DEFAULT_TIME_FORMAT'		=> $store->get_default_time_format(),
-					'MIN_ROWS'					=> $store->get_min_rows(),
-					'MAX_ROWS'					=> $store->get_max_rows(),
 					'LOAD_STYLESHEET'			=> $store->get_load_stylesheet(),
 					'EXTRA_STYLESHEET'			=> $store->get_extra_stylesheet(),
 				]);

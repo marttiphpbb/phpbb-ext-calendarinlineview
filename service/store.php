@@ -187,6 +187,62 @@ class store
 		return $this->get_all()['forums'][$name];
 	}
 
+	private function set_forums_int_bool_ary_item(string $name, int $key, bool $val):void
+	{
+		if (!$val)
+		{
+			return;
+		}
+
+		$ary['forums']['en_ary'][$name][$key] = $val;
+		$this->set($ary);
+	}
+
+	private function set_forums_int_bool_ary(string $name, array $new_ary):void
+	{
+		$ary = $this->get_all();
+		$ary['forums']['en_ary'][$name] = [];
+		$this->set($ary);
+
+		foreach ($new_ary as $int_key => $bool_value)
+		{
+			$this->set_forums_int_bool_ary_item($name, $int_key, $bool_value);
+		}
+	}
+
+	public function set_forums_viewforum_en_ary(array $viewforum_en_ary):void
+	{
+		$this->set_forums_int_bool_ary('viewforum', $viewforum_en_ary);
+	}
+
+	public function get_forums_viewforum_en(int $forum_id):bool
+	{
+		$ary = $this->get_all();
+		return isset($ary['forums']['en_ary']['viewforum'][$forum_id]);
+	}
+
+	public function set_forums_viewtopic_en_ary(array $viewtopic_en_ary):void
+	{
+		$this->set_forums_int_bool_ary('viewtopic', $viewtopic_en_ary);
+	}
+
+	public function get_forums_viewtopic_en(int $forum_id):bool
+	{
+		$ary = $this->get_all();
+		return isset($ary['forums']['en_ary']['viewtopic'][$forum_id]);
+	}
+
+	public function set_forums_posting_en_ary(array $posting_en_ary):void
+	{
+		$this->set_forums_int_bool_ary('posting', $posting_en_ary);
+	}
+
+	public function get_forums_posting_en(int $forum_id):bool
+	{
+		$ary = $this->get_all();
+		return isset($ary['forums']['en_ary']['posting'][$forum_id]);
+	}
+
 	public function set_index_days_num(int $days_num):void
 	{
 		$this->set_index_int('days_num', $days_num);

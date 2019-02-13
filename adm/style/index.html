@@ -1,0 +1,60 @@
+{%- extends '@marttiphpbb_calendarinlineview/base.html' -%}
+
+{%- block heading -%}
+	{{- lang('ACP_MARTTIPHPBB_CALENDARINLINEVIEW_INDEX') -}}
+{%- endblock -%}
+
+{%- block form_content -%}
+	<fieldset>
+		{%- embed '@marttiphpbb_overallpageblocks/dl.html' with {'name': 'index'} -%}
+			{%- block label -%}
+				{{- lang('ACP_MARTTIPHPBB_CALENDARINLINEVIEW_PLACEMENT_DAYS') -}}
+			{%- endblock -%}
+		{%- endembed -%}
+
+		{%- embed '@marttiphpbb_overallpageblocks/dl.html' with {'name': 'index_months'} -%}
+			{%- block label -%}
+				{{- lang('ACP_MARTTIPHPBB_CALENDARINLINEVIEW_PLACEMENT_MONTHS') -}}
+			{%- endblock -%}
+		{%- endembed -%}
+	</fieldset>
+
+	<fieldset>
+		<table class="table1 zebra-table">
+		<thead>
+		<tr>
+			<th>{{- lang('FORUM') -}}</th>
+			<th>{{- lang('MARTTIPHPBB_CALENDARINLINEVIEW_VIEWFORUM_EN') -}}</th>
+			<th>{{- lang('MARTTIPHPBB_CALENDARINLINEVIEW_VIEWTOPIC_EN') -}}</th>
+			<th>{{- lang('MARTTIPHPBB_CALENDARINLINEVIEW_POSTING_EN') -}}</th>
+		</tr>
+		</thead>
+		<tbody>
+		{%- for cf in cforums -%}
+			<tr>
+				<td>
+					{{- cf.NAME -}}
+				</td>
+				<td>
+					<input class="checkbox" name="viewforum_en[cf.ID]" value="1" type="checkbox"{%- if cf.VIEWFORUM_EN %} checked="checked"{%- endif -%}>
+				</td>
+				<td>
+					<input class="checkbox" name="viewtopic_en[cf.ID]" value="1" type="checkbox"{%- if cf.VIEWTOPIC_EN %} checked="checked"{%- endif -%}>
+				</td>
+				<td>
+					<input class="checkbox" name="posting_en[cf.ID]" value="1" type="checkbox"{%- if cf.POSTING_EN %} checked="checked"{%- endif -%}>
+				</td>
+			</tr>
+		{%- else -%}
+			<tr>
+				<td colspan="4" style="text-align: center;">
+					{{- lang('NO_FORUMS') -}}
+				</td>
+			</tr>
+		{%- endfor -%}
+		</tbody>
+		</table>
+
+	</fieldset>
+
+{%- endblock form_content -%}
