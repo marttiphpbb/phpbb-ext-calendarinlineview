@@ -65,7 +65,7 @@ class render
 			return $this->var;
 		}
 
-		$start_jd = $this->user_today->get_jd() - 17;
+		$start_jd = $this->user_today->get_jd();
 		$end_jd = $start_jd + $days_num - 1;
 
 		$moon_phase = new moon_phase();
