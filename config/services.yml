@@ -4,6 +4,7 @@ services:
         arguments:
             - '@auth'
             - '@marttiphpbb.calendarinlineview.render'
+            - '@marttiphpbb.calendarinlineview.store'
         tags:
             - { name: event.listener }
 
@@ -31,6 +32,5 @@ services:
             - '%core.php_ext%'
             - '@language'
             - '%core.root_path%'
-            - '@marttiphpbb.calendarinlineview.store'
             - '@marttiphpbb.calendarinlineview.user_today'
             - '@marttiphpbb.calendarinlineview.user_time'

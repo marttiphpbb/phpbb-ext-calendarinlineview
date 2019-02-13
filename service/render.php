@@ -14,7 +14,6 @@ use marttiphpbb\calendarinlineview\render\row_container;
 use marttiphpbb\calendarinlineview\value\topic;
 use marttiphpbb\calendarinlineview\value\dayspan;
 use marttiphpbb\calendarinlineview\value\calendar_event;
-use marttiphpbb\calendarinlineview\service\store;
 use marttiphpbb\calendarinlineview\service\user_today;
 use marttiphpbb\calendarinlineview\service\user_time;
 use marttiphpbb\calendarinlineview\util\cnst;
@@ -22,13 +21,10 @@ use marttiphpbb\calendarinlineview\util\moon_phase;
 
 class render
 {
-	const DAYS = 7;
-
 	protected $dispatcher;
 	protected $php_ext;
 	protected $language;
 	protected $root_path;
-	protected $store;
 	protected $user_today;
 	protected $user_time;
 
@@ -40,7 +36,6 @@ class render
 		string $php_ext,
 		language $language,
 		string $root_path,
-		store $store,
 		user_today $user_today,
 		user_time $user_time
 	)
@@ -49,7 +44,6 @@ class render
 		$this->php_ext = $php_ext;
 		$this->language = $language;
 		$this->root_path = $root_path;
-		$this->store = $store;
 		$this->user_today = $user_today;
 		$this->user_time = $user_time;
 	}
@@ -59,44 +53,58 @@ class render
 		$this->language->add_lang('inlineview', cnst::FOLDER);
 	}
 
-	public function get_var():array
+	public function get_var(
+		int $days_num,
+		int $min_rows,
+		int $max_rows,
+		int $forum_id
+	):array
 	{
 		if (isset($this->var))
 		{
 			return $this->var;
 		}
 
-		$days_num = $this->store->get_days_num();
-
 		$start_jd = $this->user_today->get_jd() - 17;
 		$end_jd = $start_jd + $days_num - 1;
 
-		if ($this->store->get_show_moon_phase())
-		{
-			$moon_phase = new moon_phase();
-			$moon_phases = $moon_phase->find($start_jd, $end_jd);
-			$mphase = reset($moon_phases);
-		}
-		else
-		{
-			$mphase = [];
-		}
+		$moon_phase = new moon_phase();
+		$moon_phases = $moon_phase->find($start_jd, $end_jd);
+		$mphase = reset($moon_phases);
 
 		$events = [];
 
-		/**
-		 * Event to fetch the calendar events for the view
-		 *
-		 * @event
-		 * @var int 	start_jd	start julian day of the view
-		 * @var int 	end_jd		end julian day of the view
-		 * @var array   events      items should contain
-		 * start_jd, end_jd, topic_id, forum_id, topic_title
-		 */
-		$vars = ['start_jd', 'end_jd', 'events'];
-		extract($this->dispatcher->trigger_event('marttiphpbb.calendar.view', compact($vars)));
+		if ($forum_id > 0)
+		{
+			/**
+			 * Event to fetch the calendar events of a forum
+			 *
+			 * @event
+			 * @var int 	start_jd	start julian day of the view
+			 * @var int 	end_jd		end julian day of the view
+			 * @var int 	forum_id	the forum
+			 * @var array   events      items should contain
+			 * start_jd, end_jd, topic_id, forum_id, topic_title
+			 */
+			$vars = ['start_jd', 'end_jd', 'forum_id', 'events'];
+			extract($this->dispatcher->trigger_event('marttiphpbb.calendar.view_forum', compact($vars)));
+		}
+		else
+		{
+			/**
+			 * Event to fetch the calendar events
+			 *
+			 * @event
+			 * @var int 	start_jd	start julian day of the view
+			 * @var int 	end_jd		end julian day of the view
+			 * @var array   events      items should contain
+			 * start_jd, end_jd, topic_id, forum_id, topic_title
+			 */
+			$vars = ['start_jd', 'end_jd', 'events'];
+			extract($this->dispatcher->trigger_event('marttiphpbb.calendar.view', compact($vars)));
+		}
 
-		$row_container = new row_container($this->store->get_min_rows(), $this->store->get_max_rows());
+		$row_container = new row_container($min_rows, $max_rows);
 
 		foreach($events as $event)
 		{
@@ -238,13 +246,6 @@ class render
 
 			$col++;
 		}
-
-		$this->var['render'] = [
-			'show_isoweek'		=> $this->store->get_show_isoweek(),
-			'show_moon_phase'	=> $this->store->get_show_moon_phase(),
-			'load_stylesheet'	=> $this->store->get_load_stylesheet(),
-			'extra_stylesheet'	=> $this->store->get_extra_stylesheet(),
-		];
 
 		return $this->var;
 	}

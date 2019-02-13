@@ -11,6 +11,7 @@ use phpbb\controller\helper;
 use phpbb\event\data as event;
 use phpbb\auth\auth;
 use marttiphpbb\calendarinlineview\service\render;
+use marttiphpbb\calendarinlineview\service\store;
 use marttiphpbb\calendarinlineview\util\cnst;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
@@ -18,17 +19,20 @@ class listener implements EventSubscriberInterface
 {
 	protected $auth;
 	protected $render;
+	protected $store;
 	protected $var;
 	protected $forum_id;
 	protected $page;
 
 	public function __construct(
 		auth $auth,
-		render $render
+		render $render,
+		store $store
 	)
 	{
 		$this->auth = $auth;
 		$this->render = $render;
+		$this->store = $store;
 	}
 
 	static public function getSubscribedEvents()
@@ -92,40 +96,86 @@ class listener implements EventSubscriberInterface
 			return;
 		}
 
-		$this->render->add_lang();
-
-		$this->var = $this->render->get_var();
-
-/*
-		'top'
-		'bottom'
-		'no_date_top'
-		'no_date_bottom'
-
-		$this->page . '_' . $tpl
-*/
-
-		if (isset($template_events[cnst::FOLDER]['index']))
+		switch ($this->page)
 		{
-			$blocks[cnst::FOLDER]['index'] = [
-				'include'	=> cnst::TPL . 'medium_info_top.html',
+			case 'viewforum':
+				if (!$this->store->get_forums_viewforum_en($this->forum_id))
+				{
+					return;
+				}
+			break;
+
+			case 'viewtopic':
+				if (!$this->store->get_forums_viewtopic_en($this->forum_id))
+				{
+					return;
+				}
+			break;
+
+			case 'posting':
+				if (!$this->store->get_forums_posting_en($this->forum_id))
+				{
+					return;
+				}
+			break;
+
+			default:
+			break;
+		}
+
+		switch($this->page)
+		{
+			case 'index':
+				$this->render->add_lang();
+				$this->var = $this->render->get_var(
+					$this->store->get_index_days_num(),
+					$this->store->get_index_min_rows(),
+					$this->store->get_index_max_rows(),
+					-1
+				);
+				$days_template = $this->store->get_index_template();
+				$days_key = 'index_days';
+				$months_key = 'index_months';
+
+			break;
+
+			case 'viewforum':
+			case 'viewtopic':
+			case 'posting':
+				$this->render->add_lang();
+				$this->var = $this->render->get_var(
+					$this->store->get_forums_days_num(),
+					$this->store->get_forums_min_rows(),
+					$this->store->get_forums_max_rows(),
+					$this->store->get_forums_local_events() ? $this->forum_id : -1
+				);
+				$days_template = $this->store->get_forums_template();
+				$days_key = 'forums_days';
+				$months_key = 'forums_months';
+
+			break;
+
+			default:
+				return;
+			break;
+		}
+
+		error_log('tpl: ' . $days_template);
+
+
+		if (isset($template_events[cnst::FOLDER][$days_key]))
+		{
+			$blocks[cnst::FOLDER][$days_key] = [
+				'include'	=> cnst::TPL . $days_template . '.html',
 				'var'		=> $this->var,
 			];
 		}
 
-		if (isset($template_events[cnst::FOLDER]['index_months']))
+		if (isset($template_events[cnst::FOLDER][$months_key]))
 		{
-			$blocks[cnst::FOLDER]['index_months'] = [
+			$blocks[cnst::FOLDER][$months_key] = [
 				'include'	=> cnst::TPL . 'months.html',
 				'var'		=> $this->var,
-			];
-		}
-
-		if (isset($template_events[cnst::FOLDER]['header']))
-		{
-			$blocks[cnst::FOLDER]['header'] = [
-				'include'	=> cnst::TPL . 'header.html',
-				'var'		=> $this->var['months'],
 			];
 		}
 
@@ -140,7 +190,12 @@ class listener implements EventSubscriberInterface
 		}
 
 		$context = $event['context'];
-		$context['marttiphpbb_calendarinlineview'] = $this->var['render'];
+
+		$context['marttiphpbb_calendarinlineview'] = [
+			'load_stylesheet'	=> $this->store->get_load_stylesheet(),
+			'extra_stylesheet'	=> $this->store->get_extra_stylesheet(),
+		];
+
 		$event['context'] = $context;
 	}
 }
