@@ -1,12 +1,12 @@
 {
 	"name": "marttiphpbb/calendarinlineview",
 	"type": "phpbb-extension",
-	"description": "Calendar Inline View Extension for phpBB 3.2",
+	"description": "Calendar Inline View Extension for phpBB 3.3",
 	"homepage": "https://github.com/marttiphpbb/phpbb-ext-calendarinlineview",
 	"version": "0.3.0",
 	"time": "2019-02-13",
 	"keywords": ["phpbb", "extension", "calendar", "inline", "view"],
-	"license": "GPL-2.0",
+	"license": "GPL-2.0-only",
 	"authors": [{
 		"name": "martti",
 		"email": "info@martti.be",
@@ -19,7 +19,7 @@
 	"extra": {
 		"display-name": "Calendar Inline View",
 		"soft-require": {
-			"phpbb/phpbb": ">=3.2.5"
+			"phpbb/phpbb": ">=3.3"
 		},
 		"version-check": {
 			"host": "marttiphpbb.github.io",

@@ -12,7 +12,7 @@ This phpBB extension provides a Calendar Inline View for the [Calendar extension
 
 ## Requirements
 
-* phpBB 3.2.5+
+* phpBB 3.3+
 * PHP 7.1+
 * phpBB extension [Calendar Mono](https://github.com/marttiphpbb/phpbb-ext-calendarmono)
 * phpBB extension [Overall Page Blocks](https://github.com/marttiphpbb/phpbb-ext-overallpageblocks)
