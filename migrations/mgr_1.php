@@ -11,14 +11,14 @@ use marttiphpbb\calendarinlineview\util\cnst;
 
 class mgr_1 extends \phpbb\db\migration\migration
 {
-	static public function depends_on()
+	static public function depends_on():array
 	{
 		return [
 			'\phpbb\db\migration\data\v330\v330',
 		];
 	}
 
-	public function update_data()
+	public function update_data():array
 	{
 		return [
 			['module.add', [

@@ -13,7 +13,7 @@ class main_module
 {
 	var $u_action;
 
-	function main($id, $mode)
+	function main($id, $mode):void
 	{
 		global $phpbb_container;
 

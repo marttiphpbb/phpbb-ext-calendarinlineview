@@ -7,7 +7,6 @@
 
 namespace marttiphpbb\calendarinlineview\event;
 
-use phpbb\controller\helper;
 use phpbb\event\data as event;
 use phpbb\auth\auth;
 use marttiphpbb\calendarinlineview\service\render;

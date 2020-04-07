@@ -11,7 +11,7 @@ use marttiphpbb\calendarinlineview\util\cnst;
 
 class main_info
 {
-	function module()
+	function module():array
 	{
 		return [
 			'filename'	=> '\marttiphpbb\calendarinlineview\acp\main_module',

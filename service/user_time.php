@@ -36,7 +36,7 @@ class user_time
 		return $this->user->format_date($time, $this->format);
 	}
 
-	private function find_format()
+	private function find_format():void
 	{
 		if (!$this->store->get_derive_user_time_format())
 		{
