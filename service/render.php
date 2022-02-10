@@ -72,7 +72,7 @@ class render
 		$moon_phases = $moon_phase->find($start_jd, $end_jd);
 		$mphase = reset($moon_phases);
 
-		if ($mphase['jd'] < $start_jd)
+		if ($mphase && $mphase['jd'] < $start_jd)
 		{
 			$mphase = next($moon_phases);
 		}
